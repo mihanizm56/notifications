@@ -1,57 +1,93 @@
-import React, { memo, useEffect, TouchEvent, Props, useCallback } from 'react';
+import React, {
+  memo,
+  useEffect,
+  TouchEvent,
+  Props,
+  useCallback,
+  useRef,
+} from 'react';
 import classnames from 'classnames/bind';
-// import { Close } from '@material-ui/icons';
-// import { IconButton } from '@material-ui/core';
+import { Close } from '@material-ui/icons';
+import { IconButton } from '@material-ui/core';
 import { Text } from '@wildberries/ui-kit';
 import {
   IMakeExternalActionParams,
   NotificationIconStatusType,
-} from '../../_types';
-// import { getNotificationIcon } from '../../_utils/get-notification-icon';
+} from '@/types/types';
+import { getNotificationIcon } from '../../_utils/get-notification-icon';
 import styles from './index.scss';
 
 const cn = classnames.bind(styles);
 
 interface IProps extends Props<any> {
-  closeModal: ({ id }: { id: string }) => void;
+  closeModal: (id: string) => void;
   id: string;
   text: string;
   status: NotificationIconStatusType;
   timeToHold: number;
-  externalAction: ({
+  externalAction?: ({
     id,
     additionalActionType,
   }: IMakeExternalActionParams) => void;
   additionalActionType?: string;
-  additionalPayload?: any;
+  additionalPayload?: any; // to do fix any
 }
 
 export const NotificationsModal = memo(
   ({
     closeModal,
-    id, // status, // text,
+    id,
+    text,
+    status,
     timeToHold,
     externalAction,
     additionalActionType,
     additionalPayload,
   }: IProps) => {
+    const notificationModalRef = useRef(null);
+
     useEffect(() => {
+      if (Boolean(notificationModalRef.current)) {
+        const modalComputedStyles = getComputedStyle(
+          // eslint-disable-next-line
+          // @ts-ignore
+          notificationModalRef.current,
+        );
+
+        const modalHeight = Number(
+          modalComputedStyles.getPropertyValue('height').slice(0, 2),
+        );
+
+        const modalPaddingTop = Number(
+          modalComputedStyles.getPropertyValue('padding-top').slice(0, 2),
+        );
+
+        const modalPaddingBottom = Number(
+          modalComputedStyles.getPropertyValue('padding-bottom').slice(0, 2),
+        );
+
+        document.documentElement.style.setProperty(
+          '--notification-max-height',
+          `${(modalHeight + modalPaddingTop + modalPaddingBottom) * 2}px`,
+        );
+      }
+
       const timer = setTimeout(() => {
-        closeModal({ id });
+        closeModal(id);
       }, timeToHold);
       return () => clearTimeout(timer);
     }, []); //eslint-disable-line
 
     let touchFromX = 0;
     let touchToX = 0;
-    // const modalIcon = getNotificationIcon(status);
+    const modalIcon = getNotificationIcon(status);
 
     const handleCloseClick = useCallback(() => {
-      if (Boolean(additionalActionType)) {
+      if (additionalActionType && externalAction) {
         externalAction({ id, additionalActionType, additionalPayload });
       }
 
-      closeModal({ id });
+      closeModal(id);
     }, [
       additionalPayload,
       closeModal,
@@ -82,17 +118,17 @@ export const NotificationsModal = memo(
         className={cn('notificationModal')}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
+        ref={notificationModalRef}
       >
-        <Text text="test" size="h2" color="black" />
-        {/* <div className={cn('notificationModalContent')}> */}
-        {/* <div className={cn('iconContainer')}>{modalIcon}</div> */}
-        {/* <div className={cn('textContainer')}>
-            <Text text={text} size="h2" color="Black" />
+        <div className={cn('notificationModalContent')}>
+          <div className={cn('iconContainer')}>{modalIcon}</div>
+          <div className={cn('textContainer')}>
+            <Text text={text} size="h2" color="black" />
           </div>
           <IconButton size="small" onClick={handleCloseClick}>
             <Close />
-          </IconButton> */}
-        {/* </div> */}
+          </IconButton>
+        </div>
       </div>
     );
   },

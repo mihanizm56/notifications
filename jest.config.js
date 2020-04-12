@@ -8,10 +8,6 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)': '<rootDir>/tests/$1',
   },
-  collectCoverageFrom: [
-    'lib/**/*.ts',
-    '!**/node_modules/**',
-    '!**/vendor/**',
-  ],
+  collectCoverageFrom: ['lib/**/*.ts', '!**/node_modules/**', '!**/vendor/**'],
   coverageDirectory: '<rootDir>/coverage',
 };

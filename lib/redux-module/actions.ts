@@ -1,5 +1,4 @@
-import { Action } from '@mihanizm56/redux-core-modules';
-import { NotificationType } from '@/types';
+import { NotificationType, Action } from '@/types/types';
 
 export const SET_MODAL = 'SET_MODAL';
 export const setModalAction: Action<NotificationType> = payload => ({

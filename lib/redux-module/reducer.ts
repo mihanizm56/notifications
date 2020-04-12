@@ -1,7 +1,7 @@
 import {
   INotificationsStorage,
   // NotificationType
-} from '@/types';
+} from '@/types/types';
 import { SET_MODAL, REMOVE_MODAL } from './actions';
 
 // type NotificationsActionsType = {

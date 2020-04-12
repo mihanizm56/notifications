@@ -47,7 +47,7 @@ module.exports = {
       },
     ],
     'react/jsx-filename-extension': 'off',
-    'import/no-extraneous-dependencies':0,
+    'import/no-extraneous-dependencies': 0,
     'no-console': ['error', { allow: ['error'] }],
     quotes: ['error', 'single'],
     'jsx-a11y/click-events-have-key-events': 0,
@@ -107,6 +107,9 @@ module.exports = {
       alias: {
         map: [['@', './lib']],
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      },
+      webpack: {
+        config: './webpack.config.js',
       },
     },
   },

@@ -1,10 +1,13 @@
 import { createSelector } from 'reselect';
-import { INotificationsStoragePart } from '@/types';
+import {
+  INotificationsStoragePart,
+  INotificationsStorage,
+} from '@/types/types';
 
 const modalStorageSelector = (store: INotificationsStoragePart) =>
   store.notificationsState;
 
 export const getModalStack = createSelector(
   [modalStorageSelector],
-  modalStorage => modalStorage.modals,
+  (modalStorage: INotificationsStorage) => modalStorage.modals,
 );

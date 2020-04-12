@@ -2,12 +2,12 @@
   font-family: lato;
   font-style: normal;
   font-weight: 400;
-  src: url("../_assets/fonts/LatoRegular.woff2") format("woff2");
+  src: url("../assets/fonts/LatoRegular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: latobold;
   font-style: normal;
   font-weight: 700;
-  src: url("../_assets/fonts/latobold.woff2") format("woff2");
+  src: url("../assets/fonts/latobold.woff2") format("woff2");
 }
