@@ -1,0 +1,137 @@
+@import "@/styles/colors.module.scss";
+
+// families
+
+$LatoFont: "lato",arial,sans-serif;
+$LatoFontBold: "latobold",arial,sans-serif;
+
+// sizes
+
+@mixin h0 {
+  font-family: $LatoFontBold;
+  font-size: 50px;
+  line-height: 50px;
+}
+
+@mixin h1 {
+  font-family: $LatoFontBold;
+  font-size: 30px;
+  line-height: 35px;
+}
+
+@mixin h1-mobile {
+  font-family: $LatoFontBold !important;
+  font-size: 24px !important;
+  line-height: 28px !important;
+}
+
+@mixin h2 {
+  font-family: $LatoFontBold;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+@mixin h2-mobile {
+  font-family: $LatoFontBold !important;
+  font-size: 18px !important;
+  line-height: 21px !important;
+}
+
+
+@mixin h3 {
+  font-family: $LatoFont;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@mixin h3-mobile {
+  font-family: $LatoFont !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
+}
+
+
+@mixin h4 {
+  font-family: $LatoFont;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+@mixin h4-mobile {
+  font-family: $LatoFont !important;
+  font-size: 13px !important;
+  line-height: 16px !important;
+}
+
+
+@mixin h5 {
+  font-family: $LatoFont;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+@mixin h5-mobile {
+  font-family: $LatoFont !important;
+  font-size: 12px !important;
+  line-height: 12px !important;
+}
+
+@mixin h6 {
+  font-family: $LatoFontBold;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+// color presets
+
+@mixin Orange {
+  color: $Orange;
+}
+
+@mixin DarkPurple {
+  color: $DarkPurple;
+}
+
+@mixin Purple {
+  color: $Purple;
+}
+
+@mixin SuperDuperLightPurple {
+  color: $SuperDuperLightPurple;
+}
+
+@mixin Red {
+  color: $Red;
+}
+
+@mixin LightRed {
+  color: $LightRed;
+}
+
+@mixin LightYellow {
+  color: $LightYellow;
+}
+
+@mixin LightBlue {
+  color: $LightBlue;
+}
+
+@mixin Black {
+  color: $Black;
+}
+
+@mixin RichGrey {
+  color: $RichGrey;
+}
+
+@mixin Grey {
+  color: $Grey;
+}
+
+@mixin LightGrey {
+  color: $LightGrey;
+}
+
+@mixin White {
+  color: $White;
+}
