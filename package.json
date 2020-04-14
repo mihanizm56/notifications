@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/notifications",
-  "version": "0.0.1-beta.25",
+  "version": "0.0.1-beta.30",
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,7 +13,7 @@
     "lint": "npx eslint . --ext .ts --fix",
     "commit": "git add . && git commit --no-edit",
     "packages-vulnerability-check": "check-audit",
-    "pub": "npm publish --access=public",
+    "release": "npm publish --access=public",
     "beta": "npm publish --tag beta --access=public",
     "size": "pkgfiles",
     "build": "cross-env NODE_ENV=production webpack --mode production && npm run compile && npm run alias-resolve",
@@ -24,10 +24,6 @@
   "dependencies": {
     "@material-ui/core": "4.9.10",
     "@material-ui/icons": "4.9.1",
-    "@types/classnames": "2.2.10",
-    "@types/lodash-es": "4.17.3",
-    "@types/react": "16.9.11",
-    "@types/react-redux": "7.1.7",
     "@wildberries/ui-kit": "0.0.1-beta.1",
     "classnames": "2.2.6",
     "lodash-es": "4.17.15",
@@ -47,6 +43,10 @@
     "@babel/runtime": "7.9.2",
     "@commitlint/cli": "8.2.0",
     "@mihanizm56/fetch-api": "3.1.2",
+    "@types/classnames": "2.2.10",
+    "@types/lodash-es": "4.17.3",
+    "@types/react": "16.9.11",
+    "@types/react-redux": "7.1.7",
     "@types/jest": "24.9.1",
     "@types/reselect": "2.2.0",
     "@typescript-eslint/eslint-plugin": "2.5.0",
@@ -92,7 +92,12 @@
     "webpack": "4.42.1",
     "webpack-bundle-analyzer": "3.6.1",
     "webpack-cli": "3.3.11",
-    "webpack-dev-server": "3.10.3"
+    "webpack-dev-server": "3.10.3",
+    "stylelint": "11.1.1",
+    "stylelint-config-recommended-scss": "4.0.0",
+    "stylelint-config-standard": "19.0.0",
+    "stylelint-order": "3.1.1",
+    "stylelint-scss": "3.12.0"
   },
   "files": [
     "dist"

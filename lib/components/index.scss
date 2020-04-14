@@ -1,13 +1,31 @@
-@import "@/styles/keyframes.module.scss";
 @import "@/styles/media.module.scss";
 
+// animations
+@keyframes fadeInBubble {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(100%);
+  }
 
-// box-shadows
-$box-shadow-modal: 0 1px 10px rgba(0, 0, 0, .2), 0 4px 5px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .14);
-$box-shadow-card: 0 1px 10px rgba(0, 0, 0, .2), 0 4px 5px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .14);
-$box-shadow-modal-active: 0 0 0 2px rgb(61, 90, 254);
-$box-shadow-card-active: 0 0 0 2px rgb(61, 90, 254);
-$box-shadow-header:0 4px 5px rgba(0, 0, 0, .05);
+  100% {
+    max-height: var(--notification-max-height, 120px);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutBubble {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(1000px);
+  }
+}
 
 // sizes
 $heightButtonSmall: 31px;
@@ -15,14 +33,22 @@ $heightButtonBig: 48px;
 $inputBlockHeight:68px;
 $iconSizeBig:48px;
 
+// animation constants
 $animation-bubbling-fadeIn-duration: .5s;
 $animation-bubbling-fadeOut-duration: .8s;
 
+// css vars for dynamic modals-height
+:root {
+  --overlay-animation-duration: "500ms";
+  --overlay-opacity: 1;
+  --notification-max-height: "120px";
+}
+
 .notificationModalsTransitionGroup {
+  z-index: 99;
   position: fixed;
   right: 10px;
   bottom: 10px;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

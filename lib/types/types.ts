@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react';
+import { SUCCESS_STATUS, ERROR_STATUS } from '@/constants';
 
 export type IMakeExternalActionParams = {
   id: string;
@@ -6,7 +7,9 @@ export type IMakeExternalActionParams = {
   additionalPayload?: any;
 };
 
-export type NotificationIconStatusType = 'success' | 'error';
+export type NotificationIconStatusType =
+  | typeof SUCCESS_STATUS
+  | typeof ERROR_STATUS;
 
 export type INotificationsModalsParams = {
   text?: string;
@@ -15,7 +18,7 @@ export type INotificationsModalsParams = {
 };
 
 export type NotificationType = {
-  status: 'success' | 'error';
+  status: NotificationIconStatusType;
   text: string;
   id: string;
   externalActionType?: string;

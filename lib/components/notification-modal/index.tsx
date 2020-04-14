@@ -13,13 +13,13 @@ import { Text } from '@wildberries/ui-kit';
 import {
   IMakeExternalActionParams,
   NotificationIconStatusType,
-} from '@/types/types';
-import { getNotificationIcon } from '../../_utils/get-notification-icon';
+} from '../_types';
+import { NotificationIcon } from '../notification-icon/notification-icon';
 import styles from './index.scss';
 
 const cn = classnames.bind(styles);
 
-interface IProps extends Props<any> {
+type PropType = {
   closeModal: (id: string) => void;
   id: string;
   text: string;
@@ -30,8 +30,8 @@ interface IProps extends Props<any> {
     additionalActionType,
   }: IMakeExternalActionParams) => void;
   additionalActionType?: string;
-  additionalPayload?: any; // to do fix any
-}
+  additionalPayload?: any; // any because we dont know this type
+} & Props<any>;
 
 export const NotificationsModal = memo(
   ({
@@ -43,7 +43,7 @@ export const NotificationsModal = memo(
     externalAction,
     additionalActionType,
     additionalPayload,
-  }: IProps) => {
+  }: PropType) => {
     const notificationModalRef = useRef(null);
 
     useEffect(() => {
@@ -72,15 +72,12 @@ export const NotificationsModal = memo(
         );
       }
 
-      const timer = setTimeout(() => {
-        closeModal(id);
-      }, timeToHold);
+      const timer = setTimeout(() => closeModal(id), timeToHold);
       return () => clearTimeout(timer);
     }, []); //eslint-disable-line
 
     let touchFromX = 0;
     let touchToX = 0;
-    const modalIcon = getNotificationIcon(status);
 
     const handleCloseClick = useCallback(() => {
       if (additionalActionType && externalAction) {
@@ -121,7 +118,9 @@ export const NotificationsModal = memo(
         ref={notificationModalRef}
       >
         <div className={cn('notificationModalContent')}>
-          <div className={cn('iconContainer')}>{modalIcon}</div>
+          <div className={cn('iconContainer')}>
+            <NotificationIcon status={status} />
+          </div>
           <div className={cn('textContainer')}>
             <Text text={text} size="h2" color="black" />
           </div>

@@ -1,13 +1,5 @@
-import {
-  INotificationsStorage,
-  // NotificationType
-} from '@/types/types';
+import { INotificationsStorage } from '@/types/types';
 import { SET_MODAL, REMOVE_MODAL } from './actions';
-
-// type NotificationsActionsType = {
-//   type: string;
-//   payload?: NotificationType | { id: string };
-// };
 
 const initialState: INotificationsStorage = {
   modals: [],
@@ -27,7 +19,7 @@ export const notificationsModuleReducer = (
     case REMOVE_MODAL:
       return {
         ...state,
-        modals: state.modals.filter(modal => modal.id !== payload.id),
+        modals: state.modals.filter(modal => modal.id !== payload),
       };
 
     default:

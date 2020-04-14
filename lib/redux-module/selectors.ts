@@ -9,5 +9,5 @@ const modalStorageSelector = (store: INotificationsStoragePart) =>
 
 export const getModalStack = createSelector(
   [modalStorageSelector],
-  (modalStorage: INotificationsStorage) => modalStorage.modals,
+  (storage: INotificationsStorage) => (storage ? storage.modals : []),
 );
