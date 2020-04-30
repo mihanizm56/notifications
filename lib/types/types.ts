@@ -21,7 +21,6 @@ export type NotificationType = {
   status: NotificationIconStatusType;
   text: string;
   id: string;
-  externalActionType?: string;
   additionalPayload?: any;
   additionalActionType?: string;
 };

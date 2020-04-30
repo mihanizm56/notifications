@@ -1,5 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+//   .BundleAnalyzerPlugin;
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -26,7 +28,10 @@ module.exports = {
     reselect: 'reselect',
   },
   devtool: isDev ? 'source-map' : '',
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    // new BundleAnalyzerPlugin()
+  ],
   module: {
     rules: [
       {
