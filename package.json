@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/notifications",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,6 +20,14 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development"
   },
   "author": "mihanizm56",
+  "homepage": "https://github.com/mihanizm56/notifications#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihanizm56/notifications.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mihanizm56/notifications/issues"
+  },
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "4.9.10",
