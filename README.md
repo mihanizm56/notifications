@@ -78,10 +78,10 @@ function ExampleComponent) {
 
   const setModal = () => {
     dispatch(setModalAction({
-      status: 'success', '--  modal status'
-      text: 'modal text', '--  modal text'
-      additionalPayload: { foo:'bar' }, '--  payload of additional action if need to call from modal (not required)'
-      additionalActionType: 'SOME_TYPE', '--  type of additional action if need to call from modal (not required)'
+      status: 'success',
+      text: 'modal text',
+      additionalPayload: { foo:'bar' }, 
+      additionalActionType: 'SOME_TYPE',
     }))
   }
 
