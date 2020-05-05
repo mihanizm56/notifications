@@ -10,7 +10,7 @@ import classnames from 'classnames/bind';
 import { Close } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 import { Text } from '@wildberries/ui-kit';
-import styles from 'index.module.css';
+import styles from '../../styles/index.module.css';
 import {
   IMakeExternalActionParams,
   NotificationIconStatusType,
