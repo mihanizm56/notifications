@@ -13,3 +13,6 @@
 
 # Misc
 .DS_Store
+
+# vuilnerabilities
+./audit-resolve.json
