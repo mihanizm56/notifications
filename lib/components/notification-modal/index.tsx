@@ -15,7 +15,7 @@ import {
   NotificationIconStatusType,
 } from '../_types';
 import { NotificationIcon } from '../notification-icon/notification-icon';
-import styles from './index.scss';
+import styles from './index.css';
 
 const cn = classnames.bind(styles);
 

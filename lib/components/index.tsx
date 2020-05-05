@@ -13,7 +13,7 @@ import {
 } from '@/constants';
 import { IMakeExternalActionParams } from './_types';
 import { NotificationsModal } from './notification-modal';
-import styles from './index.scss';
+import styles from './index.css';
 
 const cn = classnames.bind(styles);
 

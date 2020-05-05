@@ -1,4 +1,4 @@
-@import "@/styles/media.module.scss";
+@import "../styles/media.module.scss";
 
 // animations
 @keyframes fadeInBubble {
@@ -40,13 +40,10 @@ $animation-bubbling-fadeOut-duration: .8s;
 // css vars for dynamic modals-height
 :root {
   --overlay-animation-duration: "500ms";
-  --overlay-opacity: 1;
   --notification-max-height: "120px";
 }
 
 .notificationModalsTransitionGroup {
-  z-index: 99;
-  position: fixed;
   right: 10px;
   bottom: 10px;
   display: flex;
@@ -56,6 +53,8 @@ $animation-bubbling-fadeOut-duration: .8s;
   justify-content: flex-end;
   padding: 0 10px;
   overflow: hidden;
+  position: fixed;
+  z-index: 99;
 }
 
 .modalAnimationBox {
