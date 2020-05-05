@@ -1,8 +1,8 @@
-    @ECHO off
-    SETLOCAL
+@echo off
+  SETLOCAL
 
-    CALL :find_dp0
-    set "_prog=%dp0%exec-git-cz.cmd"
+  CALL :find_dp0
+  set "_prog=%dp0%exec-git-cz.cmd"
     IF NOT EXIST "%_prog%" (
         ECHO "%_prog% does not exist"
         ENDLOCAL

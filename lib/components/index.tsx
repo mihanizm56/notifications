@@ -11,9 +11,9 @@ import {
   TIME_TO_EXIT_MODAL,
   TIME_TO_HOLD_MODAL,
 } from '@/constants';
+import styles from '@/styles/index.module.css';
 import { IMakeExternalActionParams } from './_types';
 import { NotificationsModal } from './notification-modal';
-import styles from './index.css';
 
 const cn = classnames.bind(styles);
 

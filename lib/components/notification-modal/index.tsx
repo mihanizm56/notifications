@@ -10,12 +10,12 @@ import classnames from 'classnames/bind';
 import { Close } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 import { Text } from '@wildberries/ui-kit';
+import styles from 'index.module.css';
 import {
   IMakeExternalActionParams,
   NotificationIconStatusType,
 } from '../_types';
 import { NotificationIcon } from '../notification-icon/notification-icon';
-import styles from './index.css';
 
 const cn = classnames.bind(styles);
 

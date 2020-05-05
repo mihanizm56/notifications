@@ -1,8 +1,8 @@
-    @ECHO off
-    SETLOCAL
+@echo off
+  SETLOCAL
 
-    CALL :find_dp0
-    set "_prog=%cd%\node_modules\.bin\git-cz.cmd"
+  CALL :find_dp0
+  set "_prog=%cd%\node_modules\.bin\git-cz.cmd"
     IF NOT EXIST "%_prog%" (
         ECHO "%_prog% does not exist, please install commitizen"
         ENDLOCAL

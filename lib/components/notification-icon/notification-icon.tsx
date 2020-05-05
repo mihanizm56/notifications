@@ -12,7 +12,7 @@ type PropsType = {
 
 export const NotificationIcon = memo(({ status }: PropsType) =>
   status === SUCCESS_STATUS ? (
-    <CheckCircleOutlineSharp style={{ color: '#00C143' }} />
+    <CheckCircleOutlineSharp style={{ color: '#00C143', }} />
   ) : (
     <ErrorOutlineOutlined color="error" />
   ),

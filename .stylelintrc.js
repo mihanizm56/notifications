@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-recommended-scss'],
   plugins: ['stylelint-order'],
-  ignoreFiles: ['**/*.js'],
+  ignoreFiles: ['**/*.js', 'dist/**', '**/*.json', '**/*.cmd','**/*.sh', 'LICENSE'],
   rules: {
     'at-rule-empty-line-before': [
       'always',
@@ -224,7 +224,6 @@ module.exports = {
       'animation-iteration-count',
       'animation-direction',
     ],
-    'property-no-vendor-prefix': true,
     'rule-empty-line-before': null,
     'selector-attribute-quotes': 'always',
     'selector-list-comma-newline-after': 'always',
@@ -244,7 +243,6 @@ module.exports = {
     'value-keyword-case': 'lower',
     'value-list-comma-newline-after': 'never-multi-line',
     'value-list-comma-newline-before': 'never-multi-line',
-    'value-list-comma-space-after': 'always',
-    'value-no-vendor-prefix': true,
+    'value-list-comma-space-after': 'always'
   },
 };
