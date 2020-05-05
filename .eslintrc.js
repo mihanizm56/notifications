@@ -83,6 +83,7 @@ module.exports = {
       'error',
       { arrow: true, return: true, declaration: true },
     ],
+    "import/no-unresolved": 0,
     'react/jsx-one-expression-per-line': 0,
     'consistent-return': 0,
     '@typescript-eslint/indent': 0, // Conflicts with Prettier
@@ -108,9 +109,6 @@ module.exports = {
         map: [['@', './lib']],
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
       },
-      webpack: {
-        config: './webpack.config.js',
-      },
-    },
+    }
   },
 };
