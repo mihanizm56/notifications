@@ -9,13 +9,13 @@ import React, {
 import classnames from 'classnames/bind';
 import { Close } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
-import { Text } from '@wildberries/ui-kit';
-import styles from '../../styles/index.module.css';
+import { Text } from '../text';
 import {
   IMakeExternalActionParams,
   NotificationIconStatusType,
 } from '../_types';
 import { NotificationIcon } from '../notification-icon/notification-icon';
+import styles from '../../styles/index.module.css';
 
 const cn = classnames.bind(styles);
 

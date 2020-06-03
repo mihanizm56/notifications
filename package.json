@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/notifications",
-  "version": "0.0.8",
+  "version": "0.0.9-beta.0",
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -34,12 +34,12 @@
     "last 30 firefox version",
     "last 30 safari version",
     "last 30 opera version",
-    "last 50 edge version"
+    "last 50 edge version",
+    "ie 11"
   ],
   "dependencies": {
-    "@material-ui/core": "4.9.10",
+    "@material-ui/core": "4.10.1",
     "@material-ui/icons": "4.9.1",
-    "@wildberries/ui-kit": "0.0.1-beta.18",
     "classnames": "2.2.6",
     "lodash-es": "4.17.15",
     "react-transition-group": "4.3.0"
@@ -56,7 +56,7 @@
     "@types/reselect": "2.2.0",
     "@typescript-eslint/eslint-plugin": "2.5.0",
     "@typescript-eslint/parser": "2.5.0",
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "9.7.6",
     "commitizen": "4.0.4",
     "cross-env": "7.0.2",
     "cz-customizable": "6.2.0",
@@ -79,7 +79,7 @@
     "node-sass": "4.13.1",
     "npm-audit-resolver": "2.1.0",
     "pkgfiles": "2.3.2",
-    "postcss-cli": "^7.1.1",
+    "postcss-cli": "7.1.1",
     "prettier": "1.18.2",
     "react-final-form": "6.4.0",
     "stylelint": "13.3.3",
