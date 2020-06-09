@@ -1,19 +1,25 @@
 import React, { memo } from 'react';
-import {
-  ErrorOutlineOutlined,
-  CheckCircleOutlineSharp,
-} from '@material-ui/icons';
-import { NotificationIconStatusType } from '@/types/types';
-import { SUCCESS_STATUS } from '@/constants';
+import { notificationIconStatus } from '@/constants';
+import { SuccessIcon } from './icons/success-icon';
+import { WarningIcon } from './icons/warning-icon';
+import { ErrorIcon } from './icons/error-icon';
 
 type PropsType = {
-  status: NotificationIconStatusType;
+  status: keyof typeof notificationIconStatus;
 };
 
-export const NotificationIcon = memo(({ status }: PropsType) =>
-  status === SUCCESS_STATUS ? (
-    <CheckCircleOutlineSharp style={{ color: '#00C143', }} />
-  ) : (
-    <ErrorOutlineOutlined color="error" />
-  ),
-);
+export const NotificationIcon = memo(({ status }: PropsType) => {
+  switch (status) {
+    case notificationIconStatus.success:
+      return <SuccessIcon />;
+
+    case notificationIconStatus.warning:
+      return <WarningIcon />;
+
+    case notificationIconStatus.error:
+      return <ErrorIcon />;
+
+    default:
+      return <ErrorIcon />;
+  }
+});

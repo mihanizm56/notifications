@@ -7,14 +7,11 @@ import React, {
   useRef,
 } from 'react';
 import classnames from 'classnames/bind';
-import { Close } from '@material-ui/icons';
-import { IconButton } from '@material-ui/core';
+import { notificationIconStatus } from '@/constants';
 import { Text } from '../text';
-import {
-  IMakeExternalActionParams,
-  NotificationIconStatusType,
-} from '../_types';
+import { IMakeExternalActionParams } from '../_types';
 import { NotificationIcon } from '../notification-icon/notification-icon';
+import { CloseButton } from '../close-button';
 import styles from '../../styles/index.module.css';
 
 const cn = classnames.bind(styles);
@@ -23,7 +20,7 @@ type PropType = {
   closeModal: (id: string) => void;
   id: string;
   text: string;
-  status: NotificationIconStatusType;
+  status: keyof typeof notificationIconStatus;
   timeToHold: number;
   externalAction?: ({
     id,
@@ -122,11 +119,9 @@ export const NotificationsModal = memo(
             <NotificationIcon status={status} />
           </div>
           <div className={cn('textContainer')}>
-            <Text text={text} size="h2" color="black" />
+            <Text text={text} size="h3" color="black" />
           </div>
-          <IconButton size="small" onClick={handleCloseClick}>
-            <Close />
-          </IconButton>
+          <CloseButton handleClick={handleCloseClick} />
         </div>
       </div>
     );

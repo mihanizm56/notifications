@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/notifications",
-  "version": "0.0.9-beta.0",
+  "version": "0.0.9",
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,8 +38,6 @@
     "ie 11"
   ],
   "dependencies": {
-    "@material-ui/core": "4.10.1",
-    "@material-ui/icons": "4.9.1",
     "classnames": "2.2.6",
     "lodash-es": "4.17.15",
     "react-transition-group": "4.3.0"
@@ -53,6 +51,7 @@
     "@types/node-sass": "4.11.0",
     "@types/react": "16.9.11",
     "@types/react-redux": "7.1.7",
+    "@types/react-transition-group": "^4.4.0",
     "@types/reselect": "2.2.0",
     "@typescript-eslint/eslint-plugin": "2.5.0",
     "@typescript-eslint/parser": "2.5.0",

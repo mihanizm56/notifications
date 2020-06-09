@@ -362,3 +362,20 @@ $modal-notifications-height: 64px;
     text-transform: uppercase !important;
   }
 }
+
+
+.Close-button {
+  display: flex;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  outline: none;
+
+  &:focus {
+    .Close-icon {
+      path {
+        stroke: #000;
+      }
+    }
+  }
+}
