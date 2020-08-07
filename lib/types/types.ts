@@ -1,5 +1,6 @@
 import { MouseEvent } from 'react';
 import { notificationIconStatus } from '@/constants';
+import { REDUCER_NAME } from '@/redux-module/constants';
 
 export type IMakeExternalActionParams = {
   id: string;
@@ -23,10 +24,12 @@ export type NotificationType = {
 
 export interface INotificationsStorage {
   modals: Array<NotificationType>;
+  isModalOpened: boolean;
+  modalParams: any;
 }
 
 export interface INotificationsStoragePart {
-  notificationsState: INotificationsStorage;
+  [REDUCER_NAME]: INotificationsStorage;
 }
 
 export type BaseAction = () => {

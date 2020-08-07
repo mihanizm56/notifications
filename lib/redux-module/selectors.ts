@@ -3,11 +3,23 @@ import {
   INotificationsStoragePart,
   INotificationsStorage,
 } from '@/types/types';
+import { REDUCER_NAME } from './constants';
+import { initialState } from './reducer';
 
 const modalStorageSelector = (store: INotificationsStoragePart) =>
-  store.notificationsState;
+  store[REDUCER_NAME] || initialState;
 
-export const getModalStack = createSelector(
+export const getModalStackSelector = createSelector(
   [modalStorageSelector],
-  (storage: INotificationsStorage) => (storage ? storage.modals : []),
+  ({ modals }: INotificationsStorage) => modals,
+);
+
+export const getIsConfirmModalOpened = createSelector(
+  [modalStorageSelector],
+  ({ isModalOpened }: INotificationsStorage) => isModalOpened,
+);
+
+export const getConfirmModalParams = createSelector(
+  [modalStorageSelector],
+  ({ modalParams }: INotificationsStorage) => modalParams,
 );
