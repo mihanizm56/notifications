@@ -1,1 +1,1 @@
-export const REDUCER_NAME = '@notifications-reducer';
+export const NOTIFICATIONS_REDUCER_NAME = '@notifications-reducer';
