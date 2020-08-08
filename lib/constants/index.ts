@@ -7,3 +7,5 @@ export const notificationIconStatus = {
   error: 'error',
   warning: 'warning',
 };
+
+export const noop = () => {};

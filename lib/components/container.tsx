@@ -1,16 +1,24 @@
 import React, { Component, createRef } from 'react';
-import { Dispatch } from 'redux';
+import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classnames from 'classnames/bind';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Modal } from '@wildberries/ui-kit';
+import { Modal, Text } from '@wildberries/ui-kit';
 import {
   getConfirmModalParams,
   getIsConfirmModalOpened,
   getModalStackSelector,
 } from '@/redux-module/selectors';
-import { removeModalAction } from '@/redux-module/actions';
-import { NotificationType } from '@/types/types';
+import {
+  removeModalAction,
+  closeConfirmModalAction,
+} from '@/redux-module/actions';
+import {
+  NotificationType,
+  BaseAction,
+  ActionsConfigType,
+  ConfirmModalActionType,
+} from '@/types/types';
 import {
   TIME_TO_ENTER_MODAL,
   TIME_TO_EXIT_MODAL,
@@ -23,20 +31,17 @@ import { NotificationsModal } from './notification-modal';
 const cn = classnames.bind(styles);
 
 type PropsType = {
-  dispatch: Dispatch;
   modalStack: Array<NotificationType>;
   isConfirmModalOpened: boolean;
-  confirmModalParams: any;
+  confirmModalParams: ConfirmModalActionType;
+  closeConfirmModal: BaseAction;
+  dispatch: Dispatch;
 };
 
 export class WrappedContainer extends Component<PropsType> {
   notificationModalRef: any = createRef();
 
-  closeModal = (id: string) => {
-    const { dispatch } = this.props;
-
-    dispatch(removeModalAction(id));
-  };
+  closeModal = (id: string) => this.props.dispatch(removeModalAction(id));
 
   makeExternalAction = ({
     id,
@@ -51,47 +56,51 @@ export class WrappedContainer extends Component<PropsType> {
     }
   };
 
-  render() {
-    const { modalStack } = this.props;
-
-    // eslint-disable-next-line
-    console.log(
-      'this.props.isConfirmModalOpened',
-      this.props.isConfirmModalOpened,
+  confirmModal = () =>
+    this.props.confirmModalParams.confirmAction(
+      this.props.confirmModalParams.confirmActionParams,
     );
+
+  getModalConfrmPropsConfig = (): ActionsConfigType => ({
+    actionButton: {
+      onClick: this.confirmModal,
+      type: 'button',
+      withLoader: true,
+      isLoading: false,
+      size: 'big',
+      title: this.props.confirmModalParams.confirmButtonProps.text,
+      variant: 'main',
+    },
+    cancelButton: {
+      onClick: this.props.closeConfirmModal,
+      type: 'button',
+      withLoader: true,
+      isLoading: false,
+      size: 'big',
+      title: this.props.confirmModalParams.cancelButtonProps.text,
+      variant: 'interface',
+    },
+  });
+
+  render() {
+    const {
+      modalStack,
+      confirmModalParams: { text: confirmModalText, title },
+    } = this.props;
 
     return (
       <>
         <Modal
-          actionsConfig={{
-            actionButton: {
-              // eslint-disable-next-line
-              onClick: () => console.log('onClick actionButton'),
-              type: 'button',
-              withLoader: true,
-              isLoading: false,
-              size: 'big',
-              title: 'actionButton',
-            },
-            cancelButton: {
-              // eslint-disable-next-line
-              onClick: () => console.log('onClick cancelButton'),
-              type: 'button',
-              withLoader: true,
-              isLoading: false,
-              size: 'big',
-              title: 'cancelButton',
-            },
-          }}
+          actionsConfig={this.getModalConfrmPropsConfig()}
           isShowCloseIcon
           isOpened={this.props.isConfirmModalOpened}
           isTransparent
-          onClose={() =>
-            // eslint-disable-next-line
-            console.log('onClose')}
-          title="test"
+          onClose={this.props.closeConfirmModal}
+          title={title}
           titleSize="h1"
-        />
+        >
+          <Text text={confirmModalText} size="h4" color="black" />
+        </Modal>
 
         <TransitionGroup className={cn('notificationModalsTransitionGroup')}>
           {modalStack.map(
@@ -135,4 +144,16 @@ const mapStateToProps = (state: any) => ({
   confirmModalParams: getConfirmModalParams(state),
 });
 
-export const Notifications = connect(mapStateToProps)(WrappedContainer);
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators(
+    {
+      closeConfirmModal: closeConfirmModalAction,
+      dispatch,
+    },
+    dispatch,
+  );
+
+export const Notifications = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(WrappedContainer);
