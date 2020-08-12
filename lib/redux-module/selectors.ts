@@ -13,13 +13,3 @@ export const getModalStackSelector = createSelector(
   [modalStorageSelector],
   ({ modals }: INotificationsStorage) => modals,
 );
-
-export const getIsConfirmModalOpened = createSelector(
-  [modalStorageSelector],
-  ({ isModalOpened }: INotificationsStorage) => isModalOpened,
-);
-
-export const getConfirmModalParams = createSelector(
-  [modalStorageSelector],
-  ({ modalParams }: INotificationsStorage) => modalParams,
-);

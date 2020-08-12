@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/notifications",
-  "version": "0.0.10-beta.5",
+  "version": "0.0.10-beta.8",
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,10 +38,10 @@
     "ie 11"
   ],
   "dependencies": {
-    "@wildberries/ui-kit": "0.0.1-beta.43",
     "classnames": "2.2.6",
     "lodash-es": "4.17.15",
-    "react-transition-group": "4.3.0"
+    "react-transition-group": "4.3.0",
+    "redux-batched-actions": "0.4.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
