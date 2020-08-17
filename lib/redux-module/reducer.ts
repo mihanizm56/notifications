@@ -13,7 +13,7 @@ export const notificationsModuleReducer = (
     case SET_MODAL:
       return {
         ...state,
-        modals: [...state.modals, payload],
+        modals: [payload, ...state.modals],
       };
 
     case REMOVE_MODAL:

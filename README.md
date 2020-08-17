@@ -13,10 +13,13 @@ npm install @mihanizm56/notifications
 ### Connect to your root reducer
 
 ```javascript
-import {notificationsState} from '@wildberries/notifications';
+import {
+  notificationsState,
+  NOTIFICATIONS_REDUCER_NAME,
+} from '@wildberries/notifications';
 
 export const rootReducer = {
-  notificationsState,
+  [NOTIFICATIONS_REDUCER_NAME]: notificationsState,
   ...other root reducers
 };
 ```
@@ -31,6 +34,7 @@ import { uniqueId } from 'lodash-es'
 
 const portalElement = document.getElementById('portal');
 
+// example Portal component - you will need the DIV that will be appended by notifications
 class Portal extends React.PureComponent{
   constructor(props) {
     super(props);
@@ -51,9 +55,9 @@ class Portal extends React.PureComponent{
 
 const TestComponent = memo(() => (
     <div className="TestComponent">
-    <Portal prefix="notifications">
-      <Notifications />
-    </Portal>
+      <Portal prefix="notifications">
+        <Notifications />
+      </Portal>
     </div>
   );
 })
@@ -70,15 +74,15 @@ const TestComponent = memo(() => (
 ```javascript
 import React from "react";
 import { setModalAction } from "@wildberries/notifications";
-import { uniqueId } from 'lodash-es'
 import { useDispatch } from "react-redux";
 
-function ExampleComponent) {
+function ExampleComponent() {
   const dispatch = useDispatch();
 
   const setModal = () => {
     dispatch(setModalAction({
       status: 'success',
+      title: 'modal title',
       text: 'modal text',
       additionalPayload: { foo:'bar' }, 
       additionalActionType: 'SOME_TYPE',

@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
-import { notificationIconStatus } from '@/constants';
+import { notificationStatus } from '@/constants';
 
 export interface IMakeExternalActionParams {
   id: string;
@@ -10,24 +10,5 @@ export interface IMakeExternalActionParams {
 export interface INotificationsModalsParams {
   text?: string;
   handleCloseClick: (event: MouseEvent<any>) => void;
-  status: keyof typeof notificationIconStatus;
+  status: keyof typeof notificationStatus;
 }
-
-export type FontSizeType = 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-
-export type FontColorType =
-  | 'orange'
-  | 'darkPurple'
-  | 'purple'
-  | 'superDuperLightPurple'
-  | 'superDuperLightGrey'
-  | 'red'
-  | 'lightRed'
-  | 'lightYellow'
-  | 'lightBlue'
-  | 'black'
-  | 'white'
-  | 'richGrey'
-  | 'grey'
-  | 'lightGrey'
-  | 'successTextColor';

@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
-import { notificationIconStatus } from '@/constants';
+import { notificationStatus } from '@/constants';
 import { NOTIFICATIONS_REDUCER_NAME } from '@/redux-module/constants';
 
 export type IMakeExternalActionParams = {
@@ -11,12 +11,13 @@ export type IMakeExternalActionParams = {
 export type INotificationsModalsParams = {
   text?: string;
   handleCloseClick: (event: MouseEvent<any>) => void;
-  status: keyof typeof notificationIconStatus;
+  status: keyof typeof notificationStatus;
 };
 
 export type NotificationType = {
-  status: keyof typeof notificationIconStatus;
-  text: string;
+  status: keyof typeof notificationStatus;
+  text?: string;
+  title?: string;
   id: string;
   additionalPayload?: any;
   additionalActionType?: string;

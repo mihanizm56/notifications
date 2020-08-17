@@ -7,20 +7,22 @@ import React, {
   useRef,
 } from 'react';
 import classnames from 'classnames/bind';
-import { notificationIconStatus } from '@/constants';
-import { Text } from '../text';
+import { Button, Text, NavigationCloseMediumIcon } from '@wildberries/ui-kit';
+import { notificationStatus } from '@/constants';
 import { IMakeExternalActionParams } from '../_types';
-import { NotificationIcon } from '../notification-icon/notification-icon';
-import { CloseButton } from '../close-button';
+import { NotificationsIcon } from '../nitification-icon';
 import styles from '../../styles/index.module.css';
 
 const cn = classnames.bind(styles);
 
+const BLOCK_NAME = 'Notification-modal';
+
 type PropType = {
   closeModal: (id: string) => void;
   id: string;
-  text: string;
-  status: keyof typeof notificationIconStatus;
+  text?: string;
+  title?: string;
+  status: keyof typeof notificationStatus;
   timeToHold: number;
   externalAction?: ({
     id,
@@ -34,6 +36,7 @@ export const NotificationsModal = memo(
   ({
     closeModal,
     id,
+    title,
     text,
     status,
     timeToHold,
@@ -52,20 +55,20 @@ export const NotificationsModal = memo(
         );
 
         const modalHeight = Number(
-          modalComputedStyles.getPropertyValue('height').slice(0, 2),
+          modalComputedStyles.getPropertyValue('height').slice(0, -2),
         );
 
-        const modalPaddingTop = Number(
-          modalComputedStyles.getPropertyValue('padding-top').slice(0, 2),
+        const modalMarginTop = Number(
+          modalComputedStyles.getPropertyValue('margin-top').slice(0, 2),
         );
 
-        const modalPaddingBottom = Number(
-          modalComputedStyles.getPropertyValue('padding-bottom').slice(0, 2),
+        const modalMarginBottom = Number(
+          modalComputedStyles.getPropertyValue('margin-bottom').slice(0, 2),
         );
 
         document.documentElement.style.setProperty(
           '--notification-max-height',
-          `${(modalHeight + modalPaddingTop + modalPaddingBottom) * 2}px`,
+          `${modalHeight + modalMarginTop + modalMarginBottom}px`,
         );
       }
 
@@ -109,19 +112,34 @@ export const NotificationsModal = memo(
 
     return (
       <div
-        className={cn('notificationModal')}
+        className={cn(BLOCK_NAME, {
+          [`${BLOCK_NAME}--success`]: status === notificationStatus.success,
+          [`${BLOCK_NAME}--error`]: status === notificationStatus.error,
+          [`${BLOCK_NAME}--warning`]: status === notificationStatus.warning,
+        })}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         ref={notificationModalRef}
       >
-        <div className={cn('notificationModalContent')}>
-          <div className={cn('iconContainer')}>
-            <NotificationIcon status={status} />
-          </div>
-          <div className={cn('textContainer')}>
-            <Text text={text} size="h3" color="black" />
-          </div>
-          <CloseButton handleClick={handleCloseClick} />
+        <div className={cn(`${BLOCK_NAME}__info-icon`)}>
+          <NotificationsIcon status={status} />
+        </div>
+        <div className={cn(`${BLOCK_NAME}__content`)}>
+          {title && (
+            <div className={cn(`${BLOCK_NAME}__title`)}>
+              <Text text={title} size="h2" color="black" isBold />
+            </div>
+          )}
+          {text && (
+            <div className={cn(`${BLOCK_NAME}__text`)}>
+              <Text text={text} size="h4" color="black" />
+            </div>
+          )}
+        </div>
+        <div className={cn(`${BLOCK_NAME}__close-button`)}>
+          <Button onClick={handleCloseClick} size="small" type="button">
+            {NavigationCloseMediumIcon}
+          </Button>
         </div>
       </div>
     );
