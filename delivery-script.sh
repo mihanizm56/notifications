@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECT_PATH=$1
+PROJECT_PATH="/home/mihanizm56/Documents/Own/empty_test-folder/test/rus"
 
 BASE_PATH="${PROJECT_PATH}/node_modules/@wildberries/notifications"
 
@@ -16,4 +16,4 @@ cp -avr dist "${BASE_PATH}"
 cd $PROJECT_PATH
 
 # run the project
-# npx react-app-rewired start
+npx react-app-rewired start

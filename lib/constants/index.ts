@@ -1,6 +1,6 @@
 export const TIME_TO_ENTER_MODAL = 500;
 export const TIME_TO_EXIT_MODAL = 500;
-export const TIME_TO_HOLD_MODAL = 15000;
+export const TIME_TO_HOLD_MODAL = 100000;
 
 export const notificationStatus = {
   success: 'success',

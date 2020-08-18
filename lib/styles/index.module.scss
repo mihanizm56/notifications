@@ -85,6 +85,10 @@ $animation-bubbling-fadeOut-duration: .8s;
     border: 1px solid $Orange;
   }
 
+  &--no-text {
+    padding-bottom: 5px;
+  }
+
   &__content {
     display: flex;
     flex-direction: column;

@@ -116,6 +116,7 @@ export const NotificationsModal = memo(
           [`${BLOCK_NAME}--success`]: status === notificationStatus.success,
           [`${BLOCK_NAME}--error`]: status === notificationStatus.error,
           [`${BLOCK_NAME}--warning`]: status === notificationStatus.warning,
+          [`${BLOCK_NAME}--no-text`]: !text,
         })}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
