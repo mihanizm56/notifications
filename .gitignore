@@ -16,6 +16,3 @@
 
 # vuilnerabilities
 ./audit-resolve.json
-
-#others
-test.sh
