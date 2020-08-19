@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROJECT_PATH="/home/mihanizm56/Documents/Own/empty_test-folder/test/rus"
+PROJECT_PATH="/home/mihanizm56/Documents/WB/portal-eu/suppliers-portal-eu-suplier-profile"
 
 BASE_PATH="${PROJECT_PATH}/node_modules/@wildberries/notifications"
 

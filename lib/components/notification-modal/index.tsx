@@ -59,16 +59,28 @@ export const NotificationsModal = memo(
         );
 
         const modalMarginTop = Number(
-          modalComputedStyles.getPropertyValue('margin-top').slice(0, 2),
+          modalComputedStyles.getPropertyValue('margin-top').slice(0, -2),
         );
 
         const modalMarginBottom = Number(
-          modalComputedStyles.getPropertyValue('margin-bottom').slice(0, 2),
+          modalComputedStyles.getPropertyValue('margin-bottom').slice(0, -2),
+        );
+
+        const modalPaddingTop = Number(
+          modalComputedStyles.getPropertyValue('padding-top').slice(0, -2),
+        );
+
+        const modalPaddingBottom = Number(
+          modalComputedStyles.getPropertyValue('padding-bottom').slice(0, -2),
         );
 
         document.documentElement.style.setProperty(
           '--notification-max-height',
-          `${modalHeight + modalMarginTop + modalMarginBottom}px`,
+          `${modalHeight +
+            modalMarginTop +
+            modalMarginBottom +
+            modalPaddingTop +
+            modalPaddingBottom}px`,
         );
       }
 
