@@ -80,7 +80,8 @@ export const NotificationsModal = memo(
             modalMarginTop +
             modalMarginBottom +
             modalPaddingTop +
-            modalPaddingBottom}px`,
+            modalPaddingBottom +
+            5}px`,
         );
       }
 
@@ -139,7 +140,11 @@ export const NotificationsModal = memo(
         </div>
         <div className={cn(`${BLOCK_NAME}__content`)}>
           {title && (
-            <div className={cn(`${BLOCK_NAME}__title`)}>
+            <div
+              className={cn(`${BLOCK_NAME}__title`, {
+                [`${BLOCK_NAME}__title--no-text`]: !text,
+              })}
+            >
               <Text text={title} size="h2" color="black" isBold />
             </div>
           )}

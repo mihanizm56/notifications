@@ -85,14 +85,26 @@ $animation-bubbling-fadeOut-duration: .8s;
     border: 1px solid $Orange;
   }
 
-  &--no-text {
-    padding-bottom: 5px;
+  &__info-icon {
+    height: 24px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    &--no-text {
+      > span {
+        line-height: 0;
+      }
+    }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    justify-content: center;
     max-width: 252px;
     padding-left: 17px;
   }

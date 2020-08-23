@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# PROJECT_PATH=$1
 PROJECT_PATH="/home/mihanizm56/Documents/WB/portal-eu/suppliers-portal-eu-suplier-profile"
 
 BASE_PATH="${PROJECT_PATH}/node_modules/@wildberries/notifications"
