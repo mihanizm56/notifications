@@ -95,7 +95,7 @@ $animation-bubbling-fadeOut-duration: .8s;
 
     &--no-text {
       > span {
-        line-height: 0;
+        line-height: 23px;
       }
     }
   }
@@ -105,8 +105,8 @@ $animation-bubbling-fadeOut-duration: .8s;
     flex-direction: column;
     flex-grow: 1;
     justify-content: center;
-    max-width: 252px;
-    padding-left: 17px;
+    max-width: 293px;
+    padding: 0 17px;
   }
 
   &__close-button {
