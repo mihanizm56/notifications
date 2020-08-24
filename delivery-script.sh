@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # PROJECT_PATH=$1
-PROJECT_PATH="/home/mihanizm56/Documents/WB/portal-eu/suppliers-portal-eu-suplier-profile"
+PROJECT_PATH="/home/mihanizm56/Documents/WB/portal-eu/suppliers-portal-eu-supplier-settings"
 
 BASE_PATH="${PROJECT_PATH}/node_modules/@wildberries/notifications"
 
@@ -18,3 +18,4 @@ cd $PROJECT_PATH
 
 # run the project
 npx react-app-rewired start
+

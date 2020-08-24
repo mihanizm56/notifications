@@ -64,7 +64,6 @@ export class WrappedContainer extends Component<PropsType> {
               }}
               classNames={{
                 enter: cn(`${BLOCK_NAME}__modal-animation-box--enter`),
-                exit: cn(`${BLOCK_NAME}__modal-animation-box--exit`),
               }}
             >
               <div className={cn(`${BLOCK_NAME}__modal-animation-box`)}>

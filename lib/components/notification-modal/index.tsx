@@ -5,12 +5,14 @@ import React, {
   Props,
   useCallback,
   useRef,
+  useState,
+  useMemo,
 } from 'react';
 import classnames from 'classnames/bind';
 import { Button, Text, NavigationCloseMediumIcon } from '@wildberries/ui-kit';
 import { notificationStatus } from '@/constants';
 import { IMakeExternalActionParams } from '../_types';
-import { NotificationsIcon } from '../nitification-icon';
+import { NotificationsIcon } from '../notification-icon';
 import styles from '../../styles/index.module.css';
 
 const cn = classnames.bind(styles);
@@ -32,6 +34,11 @@ type PropType = {
   additionalPayload?: any; // any because we dont know this type
 } & Props<any>;
 
+type StateType = {
+  isOut: boolean;
+  direction: 'left-out' | 'right-out' | null;
+};
+
 export const NotificationsModal = memo(
   ({
     closeModal,
@@ -45,6 +52,20 @@ export const NotificationsModal = memo(
     additionalPayload,
   }: PropType) => {
     const notificationModalRef = useRef(null);
+
+    const [state, setState] = useState<StateType>({
+      isOut: false,
+      direction: null,
+    });
+
+    const isLeftFadeOut = useMemo(
+      () => state.isOut && state.direction === 'left-out',
+      [state.direction, state.isOut],
+    );
+    const isRightFadeOut = useMemo(
+      () => state.isOut && state.direction === 'right-out',
+      [state.direction, state.isOut],
+    );
 
     useEffect(() => {
       if (Boolean(notificationModalRef.current)) {
@@ -85,32 +106,40 @@ export const NotificationsModal = memo(
         );
       }
 
-      const timer = setTimeout(() => closeModal(id), timeToHold);
+      const timer = setTimeout(() => {
+        setState({
+          isOut: true,
+          direction: 'right-out',
+        });
+        closeModal(id);
+      }, timeToHold);
       return () => clearTimeout(timer);
     }, []); //eslint-disable-line
 
     let touchFromX = 0;
     let touchToX = 0;
 
-    const handleCloseClick = useCallback(() => {
-      if (additionalActionType && externalAction) {
-        externalAction({ id, additionalActionType, additionalPayload });
-      }
+    const handleCloseClick = useCallback(
+      isDirectionLeft => {
+        if (additionalActionType && externalAction) {
+          externalAction({ id, additionalActionType, additionalPayload });
+        }
 
-      closeModal(id);
-    }, [
-      additionalPayload,
-      closeModal,
-      externalAction,
-      additionalActionType,
-      id,
-    ]);
+        setState({
+          isOut: true,
+          direction: isDirectionLeft ? 'left-out' : 'right-out',
+        });
+        closeModal(id);
+      },
+      [additionalActionType, externalAction, closeModal, id, additionalPayload],
+    );
 
     const trackDeltaTouchMove = useCallback(() => {
+      const isDirectionLeft = touchFromX > touchToX;
       const delta = Math.abs(touchFromX - touchToX);
 
       if (delta > 60) {
-        handleCloseClick();
+        handleCloseClick(isDirectionLeft);
       }
     }, [handleCloseClick, touchFromX, touchToX]);
 
@@ -130,6 +159,8 @@ export const NotificationsModal = memo(
           [`${BLOCK_NAME}--error`]: status === notificationStatus.error,
           [`${BLOCK_NAME}--warning`]: status === notificationStatus.warning,
           [`${BLOCK_NAME}--no-text`]: !text,
+          [`${BLOCK_NAME}--exit-left`]: isLeftFadeOut,
+          [`${BLOCK_NAME}--exit-right`]: isRightFadeOut,
         })}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}

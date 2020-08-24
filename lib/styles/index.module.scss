@@ -27,7 +27,19 @@ $animation-bubbling-fadeOut-duration: .8s;
   }
 }
 
-@keyframes fadeOutBubble {
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-1000px);
+  }
+}
+
+@keyframes fadeOutRight {
   0% {
     opacity: 1;
     transform: translateX(0);
@@ -40,6 +52,7 @@ $animation-bubbling-fadeOut-duration: .8s;
 }
 
 // main styles
+
 .Notifications-modals-container {
   position: fixed;
   top: 10px;
@@ -56,10 +69,6 @@ $animation-bubbling-fadeOut-duration: .8s;
   &__modal-animation-box {
     &--enter {
       animation: fadeInBubble $animation-bubbling-fadeIn-duration forwards;
-    }
-
-    &--exit {
-      animation: fadeOutBubble $animation-bubbling-fadeOut-duration forwards;
     }
   }
 }
@@ -83,6 +92,14 @@ $animation-bubbling-fadeOut-duration: .8s;
   }
   &--warning {
     border: 1px solid $Orange;
+  }
+
+  &--exit-right {
+    animation: fadeOutRight $animation-bubbling-fadeOut-duration forwards;
+  }
+
+  &--exit-left {
+    animation: fadeOutRight $animation-bubbling-fadeOut-duration forwards;
   }
 
   &__info-icon {
@@ -144,6 +161,14 @@ $animation-bubbling-fadeOut-duration: .8s;
       position: absolute;
       top: 0;
       right: 0;
+    }
+
+    &--exit-right {
+      animation: fadeOutRight $animation-bubbling-fadeOut-duration forwards;
+    }
+
+    &--exit-left {
+      animation: fadeOutLeft $animation-bubbling-fadeOut-duration forwards;
     }
   }
 }
