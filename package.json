@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/notifications",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -42,10 +42,10 @@
     "lodash-es": "4.17.15",
     "react-transition-group": "4.3.0",
     "redux-batched-actions": "0.4.1",
-    "@wildberries/ui-kit": "0.0.1-beta.47"
+    "@wildberries/ui-kit": "0.0.1-beta.49"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.1.2",
+    "@commitlint/cli": "9.1.2",
     "@mihanizm56/fetch-api": "3.1.2",
     "@types/classnames": "2.2.10",
     "@types/jest": "24.9.1",
@@ -53,7 +53,7 @@
     "@types/node-sass": "4.11.0",
     "@types/react": "16.9.11",
     "@types/react-redux": "7.1.7",
-    "@types/react-transition-group": "^4.4.0",
+    "@types/react-transition-group": "4.4.0",
     "@types/reselect": "2.2.0",
     "@typescript-eslint/eslint-plugin": "2.5.0",
     "@typescript-eslint/parser": "2.5.0",
