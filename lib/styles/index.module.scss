@@ -1,6 +1,9 @@
 @import "../../node_modules/@wildberries/ui-kit/lib/styles/constants.module.scss";
 @import "../../node_modules/@wildberries/ui-kit/lib/styles/media.module.scss";
 
+// extended constants
+$custom-mobile-size: "(max-width: 660px)";
+
 // animation constants
 $animation-bubbling-fadeIn-duration: .5s;
 $animation-bubbling-fadeOut-duration: .8s;
@@ -133,7 +136,7 @@ $animation-bubbling-fadeOut-duration: .8s;
   }
 }
 
-@media #{$tablet} {
+@media #{$custom-mobile-size} {
   .Notifications-modals-container {
     right: 0;
     align-items: center;
@@ -145,10 +148,6 @@ $animation-bubbling-fadeOut-duration: .8s;
       padding: 0 10px;
     }
   }
-}
-
-
-@media #{$mobile} {
   .Notification-modal {
     width: 320px;
 
