@@ -7,7 +7,7 @@
 ### Installation
 
 ```javascript
-npm install @mihanizm56/notifications
+npm install @wildberries/notifications
 ```
 
 ### Connect to your root reducer

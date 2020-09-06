@@ -58,7 +58,7 @@
     "@typescript-eslint/eslint-plugin": "2.5.0",
     "@typescript-eslint/parser": "2.5.0",
     "autoprefixer": "9.7.6",
-    "commitizen": "4.0.4",
+    "commitizen": "4.2.1",
     "cross-env": "7.0.2",
     "cz-customizable": "6.2.0",
     "eslint": "6.6.0",
