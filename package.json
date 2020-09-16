@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/notifications",
-  "version": "1.0.4",
+  "version": "1.0.5-beta.1",
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

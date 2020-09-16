@@ -21728,6 +21728,11 @@
     "1523|commitizen>lodash": {
       "decision": "fix",
       "madeAt": 1599429701767
+    },
+    "1556|@mihanizm56/fetch-api>node-fetch": {
+      "decision": "ignore",
+      "madeAt": 1600270038201,
+      "expiresAt": 1602862021725
     }
   },
   "rules": {},

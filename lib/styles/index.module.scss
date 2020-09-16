@@ -3,6 +3,7 @@
 
 // extended constants
 $custom-mobile-size: "(max-width: 660px)";
+$custom-min-mobile-size: "(max-width: 340px)";
 
 // animation constants
 $animation-bubbling-fadeIn-duration: .5s;
@@ -171,3 +172,10 @@ $animation-bubbling-fadeOut-duration: .8s;
     }
   }
 }
+
+@media #{$custom-min-mobile-size} {
+  .Notification-modal {
+    width: 280px;
+  }
+}
+
