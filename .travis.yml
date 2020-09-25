@@ -6,7 +6,7 @@ cache: npm
 
 branches:
   only:
-  - /.*/
+  - /v(\d)\.(\d)\.(\d)(\-\d)?/
 
 script:
     - npm run lint
