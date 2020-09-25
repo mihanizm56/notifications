@@ -16,3 +16,5 @@
 
 # vuilnerabilities
 ./audit-resolve.json
+
+storybook-static

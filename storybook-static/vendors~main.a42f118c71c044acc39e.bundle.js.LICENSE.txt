@@ -1,3 +1,0 @@
-//! stable.js 0.1.8, https:
-//github.com/two-screen/stable
-//! © 2018 angry bytes and contributors. mit licensed.;stable.js0.1.8,httpsstable.js0.1.8,https
