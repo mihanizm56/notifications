@@ -19,4 +19,5 @@ script:
 deploy:
     provider: pages
     skip-cleanup: true
+    local_dir: storybook-static
     github-token: $GITHUB_TOKEN
