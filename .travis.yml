@@ -21,3 +21,6 @@ deploy:
     github-token: $GITHUB_TOKEN
     on:
       tags: true
+      branches:
+        only:
+        - /v(\d)\.(\d)\.(\d)(\-\d)?/
