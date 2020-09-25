@@ -23,4 +23,3 @@ deploy:
     github-token: $GITHUB_TOKEN
     on:
       tags: true
-      branch: master
