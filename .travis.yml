@@ -16,7 +16,6 @@ script:
 
 deploy:
     provider: pages
-    script: npm run build-storybook
     local_dir: storybook-static
     skip-cleanup: true
     github-token: $GITHUB_TOKEN
