@@ -17,7 +17,6 @@
     "release": "npm run commit && git push && npm publish --access=public",
     "beta": "npm run commit && git push && npm publish --tag beta --access=public",
     "size": "pkgfiles",
-    "check-types": "tsc",
     "build": "npm run compile && npm run compile:sass && npm run alias-resolve",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
