@@ -17,9 +17,9 @@ script:
     - npm run build
 
 deploy:
+    before_script: npm run build-storybook 
     provider: pages
     skip-cleanup: true
-    script: npm run build-storybook
     github-token: $GITHUB_TOKEN
     on:
       tags: true
