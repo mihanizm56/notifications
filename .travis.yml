@@ -8,9 +8,6 @@ branches:
   only:
   - /v(\d)\.(\d)\.(\d)(\-\d)?/
 
-on:
-  tags: true
-
 script:
     - npm run lint
     - npm run test
@@ -22,3 +19,5 @@ deploy:
     script: npm run build-storybook 
     skip-cleanup: true
     github-token: $GITHUB_TOKEN
+    on:
+      tags: true
