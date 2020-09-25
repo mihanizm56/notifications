@@ -17,7 +17,10 @@
     "release": "npm run commit && git push && npm publish --access=public",
     "beta": "npm run commit && git push && npm publish --tag beta --access=public",
     "size": "pkgfiles",
-    "build": "npm run compile && npm run compile:sass && npm run alias-resolve"
+    "check-types": "tsc",
+    "build": "npm run compile && npm run compile:sass && npm run alias-resolve",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "mihanizm56",
   "license": "MIT",
@@ -41,12 +44,16 @@
     "classnames": "2.2.6",
     "lodash-es": "4.17.15",
     "react-transition-group": "4.3.0",
-    "redux-batched-actions": "0.4.1",
-    "@wildberries/ui-kit": "0.0.1-beta.49"
+    "@wildberries/ui-kit": "0.0.1-beta.58"
   },
   "devDependencies": {
+    "@babel/core": "7.11.6",
     "@commitlint/cli": "9.1.2",
-    "@mihanizm56/fetch-api": "3.1.2",
+    "@mihanizm56/fetch-api": "^3.3.18",
+    "@storybook/addon-actions": "6.0.21",
+    "@storybook/addon-essentials": "6.0.21",
+    "@storybook/addon-links": "6.0.21",
+    "@storybook/react": "6.0.21",
     "@types/classnames": "2.2.10",
     "@types/jest": "24.9.1",
     "@types/lodash-es": "4.17.3",
@@ -57,9 +64,12 @@
     "@types/reselect": "2.2.0",
     "@typescript-eslint/eslint-plugin": "2.5.0",
     "@typescript-eslint/parser": "2.5.0",
+    "@wildberries/redux-core-modules": "0.0.36",
     "autoprefixer": "9.7.6",
+    "babel-loader": "8.1.0",
     "commitizen": "4.2.1",
     "cross-env": "7.0.2",
+    "css-loader": "4.3.0",
     "cz-customizable": "6.2.0",
     "eslint": "6.6.0",
     "eslint-config-airbnb": "18.0.1",
@@ -83,6 +93,9 @@
     "postcss-cli": "7.1.1",
     "prettier": "1.18.2",
     "react-final-form": "6.4.0",
+    "react-is": "16.13.1",
+    "sass-loader": "10.0.2",
+    "style-loader": "1.2.1",
     "stylelint": "13.3.3",
     "stylelint-config-recommended-scss": "4.0.0",
     "stylelint-config-standard": "19.0.0",
@@ -92,9 +105,23 @@
     "tscpaths": "0.0.9",
     "typescript": "3.8.3"
   },
+  "peerDependencies": {
+    "redux": "4.0.5",
+    "react-redux": "7.2.0",
+    "redux-devtools-extension": "2.13.8",
+    "reselect": "4.0.0"
+  },
   "files": [
     "dist"
   ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g config/git/commitlint.js",
+      "pre-commit": "npm run lint && git add . && npm run packages-vulnerability-check && npm run build",
+      "pre-push": "npm run size",
+      "prepare-commit-msg": "node ./config/git/prepare-commit.js"
+    }
+  },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-customizable"

@@ -3,6 +3,7 @@ import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classnames from 'classnames/bind';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Portal } from '@wildberries/ui-kit';
 import { getModalStackSelector } from '@/redux-module/selectors';
 import { removeModalAction } from '@/redux-module/actions';
 import { NotificationType, Action } from '@/types/types';
@@ -11,7 +12,7 @@ import {
   TIME_TO_EXIT_MODAL,
   TIME_TO_HOLD_MODAL,
 } from '@/constants';
-import styles from '../styles/index.module.css';
+import styles from '../styles/index.scss';
 import { IMakeExternalActionParams } from './_types';
 import { NotificationsModal } from './notification-modal';
 
@@ -43,47 +44,47 @@ export class WrappedContainer extends Component<PropsType> {
   };
 
   render() {
-    const { modalStack } = this.props;
-
     return (
-      <TransitionGroup className={cn(BLOCK_NAME)}>
-        {modalStack.map(
-          ({
-            status,
-            text,
-            title,
-            id,
-            additionalActionType,
-            additionalPayload,
-          }) => (
-            <CSSTransition
-              key={id}
-              timeout={{
-                enter: TIME_TO_ENTER_MODAL,
-                exit: TIME_TO_EXIT_MODAL,
-              }}
-              classNames={{
-                enter: cn(`${BLOCK_NAME}__modal-animation-box--enter`),
-              }}
-            >
-              <div className={cn(`${BLOCK_NAME}__modal-animation-box`)}>
-                <NotificationsModal
-                  status={status}
-                  text={text}
-                  key={id}
-                  title={title}
-                  id={id}
-                  closeModal={this.closeModal}
-                  timeToHold={TIME_TO_HOLD_MODAL}
-                  externalAction={this.makeExternalAction}
-                  additionalActionType={additionalActionType}
-                  additionalPayload={additionalPayload}
-                />
-              </div>
-            </CSSTransition>
-          ),
-        )}
-      </TransitionGroup>
+      <Portal prefix="notifications" zIndex={99}>
+        <TransitionGroup className={cn(BLOCK_NAME)}>
+          {this.props.modalStack.map(
+            ({
+              status,
+              text,
+              title,
+              id,
+              additionalActionType,
+              additionalPayload,
+            }) => (
+              <CSSTransition
+                key={id}
+                timeout={{
+                  enter: TIME_TO_ENTER_MODAL,
+                  exit: TIME_TO_EXIT_MODAL,
+                }}
+                classNames={{
+                  enter: cn(`${BLOCK_NAME}__modal-animation-box--enter`),
+                }}
+              >
+                <div className={cn(`${BLOCK_NAME}__modal-animation-box`)}>
+                  <NotificationsModal
+                    status={status}
+                    text={text}
+                    key={id}
+                    title={title}
+                    id={id}
+                    closeModal={this.closeModal}
+                    timeToHold={TIME_TO_HOLD_MODAL}
+                    externalAction={this.makeExternalAction}
+                    additionalActionType={additionalActionType}
+                    additionalPayload={additionalPayload}
+                  />
+                </div>
+              </CSSTransition>
+            ),
+          )}
+        </TransitionGroup>
+      </Portal>
     );
   }
 }

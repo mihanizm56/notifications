@@ -13,7 +13,7 @@ import { Button, Text, NavigationCloseMediumIcon } from '@wildberries/ui-kit';
 import { notificationStatus } from '@/constants';
 import { IMakeExternalActionParams } from '../_types';
 import { NotificationsIcon } from '../notification-icon';
-import styles from '../../styles/index.module.css';
+import styles from '../../styles/index.scss';
 
 const cn = classnames.bind(styles);
 
@@ -95,15 +95,18 @@ export const NotificationsModal = memo(
           modalComputedStyles.getPropertyValue('padding-bottom').slice(0, -2),
         );
 
-        document.documentElement.style.setProperty(
-          '--notification-max-height',
-          `${modalHeight +
-            modalMarginTop +
-            modalMarginBottom +
-            modalPaddingTop +
-            modalPaddingBottom +
-            5}px`,
-        );
+        // to make the isomorphic component
+        if (document) {
+          document.documentElement.style.setProperty(
+            '--notification-max-height',
+            `${modalHeight +
+              modalMarginTop +
+              modalMarginBottom +
+              modalPaddingTop +
+              modalPaddingBottom +
+              5}px`,
+          );
+        }
       }
 
       const timer = setTimeout(() => {
@@ -119,8 +122,8 @@ export const NotificationsModal = memo(
     let touchFromX = 0;
     let touchToX = 0;
 
-    const handleCloseClick = useCallback(
-      isDirectionLeft => {
+    const onCloseModal = useCallback(
+      (isDirectionLeft: boolean) => {
         if (additionalActionType && externalAction) {
           externalAction({ id, additionalActionType, additionalPayload });
         }
@@ -129,19 +132,28 @@ export const NotificationsModal = memo(
           isOut: true,
           direction: isDirectionLeft ? 'left-out' : 'right-out',
         });
+
         closeModal(id);
       },
-      [additionalActionType, externalAction, closeModal, id, additionalPayload],
+      [additionalActionType, additionalPayload, closeModal, externalAction, id],
     );
+
+    const handleCloseClick = useCallback(() => {
+      setState({
+        isOut: true,
+        direction: 'right-out',
+      });
+      onCloseModal(false);
+    }, [onCloseModal]);
 
     const trackDeltaTouchMove = useCallback(() => {
       const isDirectionLeft = touchFromX > touchToX;
       const delta = Math.abs(touchFromX - touchToX);
 
       if (delta > 60) {
-        handleCloseClick(isDirectionLeft);
+        onCloseModal(isDirectionLeft);
       }
-    }, [handleCloseClick, touchFromX, touchToX]);
+    }, [onCloseModal, touchFromX, touchToX]);
 
     const handleTouchStart = useCallback(({ touches }: TouchEvent) => {
       touchFromX = touches[0].clientX; //eslint-disable-line

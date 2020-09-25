@@ -1,7 +1,15 @@
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-recommended-scss'],
   plugins: ['stylelint-order'],
-  ignoreFiles: ['**/*.js', 'dist/**', '**/*.json', '**/*.cmd','**/*.sh', 'LICENSE'],
+  ignoreFiles: [
+    '**/*.js',
+    'dist/**',
+    '**/*.json',
+    '**/*.cmd',
+    '**/*.sh',
+    'storybook-static/**',
+    'LICENSE',
+  ],
   rules: {
     'at-rule-empty-line-before': [
       'always',
@@ -243,6 +251,6 @@ module.exports = {
     'value-keyword-case': 'lower',
     'value-list-comma-newline-after': 'never-multi-line',
     'value-list-comma-newline-before': 'never-multi-line',
-    'value-list-comma-space-after': 'always'
+    'value-list-comma-space-after': 'always',
   },
 };
