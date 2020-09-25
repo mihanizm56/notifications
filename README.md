@@ -1,5 +1,7 @@
 # @wildberries/notifications
 
+[![Build Status](https://travis-ci.com/mihanizm56/notifications.svg?branch=master)](https://travis-ci.com/mihanizm56/notifications)
+
 ## Sollution for notifications, connected with redux
 
 ## Examples of usage
