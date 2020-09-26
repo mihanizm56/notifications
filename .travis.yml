@@ -4,17 +4,14 @@ node_js:
 - 12.13.0
 cache: npm
 
-branches:
-  only:
-  - /v(\d)\.(\d)\.(\d)(\-\d)?/
-
 script:
     - npm run lint
     - npm run test
     - npm run build
-    - npm run build-storybook 
 
 deploy:
+    script:
+      - npm run build-storybook
     provider: pages
     local_dir: storybook-static
     skip-cleanup: true
