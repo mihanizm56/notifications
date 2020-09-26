@@ -9,10 +9,9 @@ script:
     - npm run lint
     - npm run test
     - npm run build
+    - npm run build-storybook
 
 deploy:
-    install:
-      - npm run build-storybook
     provider: pages
     local_dir: storybook-static
     skip-cleanup: true
