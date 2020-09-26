@@ -4,18 +4,18 @@
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "storybook": {
-    "url": "https://mihanizm56.github.io/notifications/v1.0.0"
-  },
   "scripts": {
+    "test:watch": "jest --watch",
     "test": "set CI=true && jest",
     "test:coverage": "jest --coverage",
+    "alias-resolve": "tscpaths -p tsconfig.json -s ./lib -o ./dist",
+    "compile": "rm -fr ./dist && tsc --project tsconfig.json",
     "lint": "npx eslint . --ext .ts,.tsx --fix && npx stylelint --fix --max-warnings=0 ./",
     "commit": "git add . && git commit --no-edit",
     "release": "npm run commit && git push && npm publish --access=public && npm run deploy",
     "beta": "npm run commit && git push && npm publish --tag beta --access=public",
     "size": "pkgfiles",
-    "build": "webpack --mode production",
+    "build": "npm run compile && npm run alias-resolve && bash config/build/helper.sh",
     "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy": "node config/deploy/executor.js"
@@ -30,14 +30,6 @@
   "bugs": {
     "url": "https://github.com/mihanizm56/notifications/issues"
   },
-  "browserslist": [
-    "last 30 chrome version",
-    "last 30 firefox version",
-    "last 30 safari version",
-    "last 30 opera version",
-    "last 50 edge version",
-    "ie 11"
-  ],
   "dependencies": {
     "classnames": "2.2.6",
     "lodash-es": "4.17.15",
@@ -45,7 +37,6 @@
     "@wildberries/ui-kit": "0.0.1-beta.58"
   },
   "devDependencies": {
-    "@babel/core": "7.11.6",
     "@commitlint/cli": "9.1.2",
     "@mihanizm56/fetch-api": "3.3.18",
     "@storybook/addon-actions": "6.0.21",
@@ -63,10 +54,6 @@
     "@typescript-eslint/eslint-plugin": "2.5.0",
     "@typescript-eslint/parser": "2.5.0",
     "@wildberries/redux-core-modules": "0.0.36",
-    "autoprefixer": "9.7.6",
-    "babel-loader": "8.1.0",
-    "cache-loader": "4.1.0",
-    "clean-webpack-plugin": "^3.0.0",
     "commitizen": "4.2.1",
     "cross-env": "7.0.2",
     "css-loader": "4.3.0",
@@ -85,16 +72,16 @@
     "eslint-plugin-react-hooks": "2.2.0",
     "eslint-plugin-security": "1.4.0",
     "final-form": "4.19.1",
+    "glob": "7.1.6",
     "husky": "3.0.9",
     "jest": "25.1.0",
-    "mini-css-extract-plugin": "0.9.0",
     "node-sass": "4.13.1",
     "npm-audit-resolver": "2.1.0",
     "pkgfiles": "2.3.2",
-    "postcss-cli": "7.1.1",
     "prettier": "1.18.2",
     "react-final-form": "6.4.0",
     "react-is": "16.13.1",
+    "rimraf": "3.0.2",
     "sass-loader": "10.0.2",
     "style-loader": "1.2.1",
     "stylelint": "13.3.3",
@@ -102,14 +89,9 @@
     "stylelint-config-standard": "19.0.0",
     "stylelint-order": "3.1.1",
     "stylelint-scss": "3.12.0",
-    "thread-loader": "3.0.0",
     "ts-jest": "25.4.0",
-    "ts-loader": "8.0.4",
-    "tsconfig-paths-webpack-plugin": "3.3.0",
     "tscpaths": "0.0.9",
-    "typescript": "3.8.3",
-    "webpack": "4.44.2",
-    "webpack-cli": "3.3.12"
+    "typescript": "3.8.3"
   },
   "peerDependencies": {
     "redux": "4.0.5",

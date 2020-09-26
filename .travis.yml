@@ -7,8 +7,7 @@ cache: yarn
 
 script:
     - npm run lint
-    - npm run test
-    - npm run build
+    - npm run compile
     - npm run build-storybook
 
 deploy:
