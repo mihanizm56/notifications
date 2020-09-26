@@ -21,6 +21,7 @@ export type NotificationType = {
   id: string;
   additionalPayload?: any;
   additionalActionType?: string;
+  customHoldTimeout?: number;
 };
 
 export interface INotificationsStorage {

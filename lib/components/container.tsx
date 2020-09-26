@@ -55,6 +55,7 @@ export class WrappedContainer extends Component<PropsType> {
               id,
               additionalActionType,
               additionalPayload,
+              customHoldTimeout,
             }) => (
               <CSSTransition
                 key={id}
@@ -74,7 +75,7 @@ export class WrappedContainer extends Component<PropsType> {
                     title={title}
                     id={id}
                     closeModal={this.closeModal}
-                    timeToHold={TIME_TO_HOLD_MODAL}
+                    timeToHold={customHoldTimeout || TIME_TO_HOLD_MODAL}
                     externalAction={this.makeExternalAction}
                     additionalActionType={additionalActionType}
                     additionalPayload={additionalPayload}
