@@ -19,8 +19,7 @@
     "size": "pkgfiles",
     "build": "npm run compile && npm run compile:sass && npm run alias-resolve",
     "start": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "deploy": "bash config/deploy/deploy-script.sh"
+    "build-storybook": "build-storybook"
   },
   "author": "mihanizm56",
   "license": "MIT",
