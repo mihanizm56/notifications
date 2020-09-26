@@ -1,3 +1,16 @@
+@import "../../node_modules/@wildberries/ui-kit/lib/styles/constants.module.scss";
+@import "../../node_modules/@wildberries/ui-kit/lib/styles/media.module.scss";
+
+// animation constants
+$animation-bubbling-fadeIn-duration: .5s;
+$animation-bubbling-fadeOut-duration: .8s;
+
+// css vars for dynamic modals-height
+:root {
+  --overlay-animation-duration: "500ms";
+  --notification-max-height: "120px";
+}
+
 @keyframes fadeInBubble {
   0% {
     max-height: 0;

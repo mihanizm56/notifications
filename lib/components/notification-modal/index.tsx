@@ -2,7 +2,6 @@ import React, {
   memo,
   useEffect,
   TouchEvent,
-  Props,
   useCallback,
   useRef,
   useState,
@@ -13,7 +12,7 @@ import { Button, Text, NavigationCloseMediumIcon } from '@wildberries/ui-kit';
 import { notificationStatus } from '@/constants';
 import { IMakeExternalActionParams } from '../_types';
 import { NotificationsIcon } from '../notification-icon';
-import styles from '../../styles/index.scss';
+import styles from './index.scss';
 
 const cn = classnames.bind(styles);
 
@@ -32,7 +31,7 @@ type PropType = {
   }: IMakeExternalActionParams) => void;
   additionalActionType?: string;
   additionalPayload?: any; // any because we dont know this type
-} & Props<any>;
+};
 
 type StateType = {
   isOut: boolean;

@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/notifications",
-  "version": "1.0.6-beta.2",
+  "version": "1.0.6-beta.3",
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -31,9 +31,6 @@
     "url": "https://github.com/mihanizm56/notifications/issues"
   },
   "dependencies": {
-    "classnames": "2.2.6",
-    "lodash-es": "4.17.15",
-    "react-transition-group": "4.3.0",
     "@wildberries/ui-kit": "0.0.1-beta.58"
   },
   "devDependencies": {
@@ -97,7 +94,10 @@
     "redux": "4.0.5",
     "react-redux": "7.2.0",
     "redux-devtools-extension": "2.13.8",
-    "reselect": "4.0.0"
+    "reselect": "4.0.0",
+    "lodash-es": "4.17.15",
+    "classnames": "2.2.6",
+    "react-transition-group": "4.3.0"
   },
   "files": [
     "dist"

@@ -1,0 +1,95 @@
+@import "../../../node_modules/@wildberries/ui-kit/lib/styles/media.module.scss";
+@import "../../styles/keyframes.scss";
+@import "../../styles/constants.scss";
+
+.Notification-modal {
+  position: relative;
+  display: flex;
+  width: 364px;
+  padding: 12px 20px 10px 16px;
+  margin: 20px 0;
+  overflow: hidden;
+  background-color: $White;
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+
+  &--success {
+    border: 1px solid $SuccessTextColor;
+  }
+  &--error {
+    border: 1px solid $Red;
+  }
+  &--warning {
+    border: 1px solid $Orange;
+  }
+
+  &--exit-right {
+    animation: fadeOutRight $animation-bubbling-fadeOut-duration forwards;
+  }
+
+  &--exit-left {
+    animation: fadeOutRight $animation-bubbling-fadeOut-duration forwards;
+  }
+
+  &__info-icon {
+    height: 24px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+
+    &--no-text {
+      > span {
+        line-height: 23px;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    max-width: 293px;
+    padding: 0 17px;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+@media #{$custom-mobile-size} {
+  .Notification-modal {
+    width: 320px;
+
+    &__content {
+      max-width: 224px;
+      padding-left: 9px;
+    }
+
+    &__close-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &--exit-right {
+      animation: fadeOutRight $animation-bubbling-fadeOut-duration forwards;
+    }
+
+    &--exit-left {
+      animation: fadeOutLeft $animation-bubbling-fadeOut-duration forwards;
+    }
+  }
+}
+
+@media #{$custom-min-mobile-size} {
+  .Notification-modal {
+    width: 280px;
+  }
+}
+

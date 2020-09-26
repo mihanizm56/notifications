@@ -12,9 +12,9 @@ import {
   TIME_TO_EXIT_MODAL,
   TIME_TO_HOLD_MODAL,
 } from '@/constants';
-import styles from '../styles/index.scss';
 import { IMakeExternalActionParams } from './_types';
 import { NotificationsModal } from './notification-modal';
+import styles from './index.scss';
 
 const cn = classnames.bind(styles);
 const BLOCK_NAME = 'Notifications-modals-container';
