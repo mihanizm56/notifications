@@ -105,3 +105,10 @@ export const ModalsInAction = () => (
     <SetModalComponent />
   </Provider>
 );
+
+export const ModalsInAction1 = () => (
+  <Provider store={store}>
+    <Notifications />
+    <SetModalComponent />
+  </Provider>
+);

@@ -4,6 +4,9 @@
   "description": "notifications module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "storybook": {
+    "url": "https://mihanizm56.github.io/notifications/v1.0.0"
+  },
   "scripts": {
     "test:watch": "jest --watch",
     "test": "set CI=true && jest",
