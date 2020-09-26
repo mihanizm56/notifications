@@ -13,14 +13,13 @@
     "compile:sass": "node-sass lib/ -o dist/ && npx postcss dist/styles/*.css --use autoprefixer -r",
     "lint": "npx eslint . --ext .ts,.tsx --fix && npx stylelint --fix --max-warnings=0 ./",
     "commit": "git add . && git commit --no-edit",
-    "packages-vulnerability-check": "check-audit",
-    "release": "npm run commit && git push && npm publish --access=public && node config/deploy/executor.js",
-    "beta": "npm run commit && git push && npm publish --tag beta --access=public && node config/deploy/executor.js",
+    "release": "npm run commit && git push && npm publish --access=public && npm run deploy",
+    "beta": "npm run commit && git push && npm publish --tag beta --access=public && npm run deploy",
     "size": "pkgfiles",
     "build": "npm run compile && npm run compile:sass && npm run alias-resolve",
     "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy": "bash config/deploy/deploy-script.sh"
+    "deploy": "node config/deploy/executor.js"
   },
   "author": "mihanizm56",
   "license": "MIT",
@@ -49,7 +48,7 @@
   "devDependencies": {
     "@babel/core": "7.11.6",
     "@commitlint/cli": "9.1.2",
-    "@mihanizm56/fetch-api": "^3.3.18",
+    "@mihanizm56/fetch-api": "3.3.18",
     "@storybook/addon-actions": "6.0.21",
     "@storybook/addon-essentials": "6.0.21",
     "@storybook/addon-links": "6.0.21",
@@ -118,7 +117,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g config/git/commitlint.js",
-      "pre-commit": "npm run lint && git add . && npm run packages-vulnerability-check && npm run build",
+      "pre-commit": "npm run lint && git add . && npm run build",
       "pre-push": "npm run size",
       "prepare-commit-msg": "node ./config/git/prepare-commit.js"
     }

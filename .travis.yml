@@ -2,7 +2,8 @@ language: node_js
 
 node_js:
 - 12.13.0
-cache: npm
+
+cache: yarn
 
 script:
     - npm run lint
@@ -10,7 +11,7 @@ script:
     - npm run build
 
 deploy:
-    script:
+    install:
       - npm run build-storybook
     provider: pages
     local_dir: storybook-static
