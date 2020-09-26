@@ -17,7 +17,7 @@
     "lint": "npx eslint . --ext .ts,.tsx --fix && npx stylelint --fix --max-warnings=0 ./",
     "commit": "git add . && git commit --no-edit",
     "release": "npm run commit && git push && npm publish --access=public && npm run deploy",
-    "beta": "npm run commit && git push && npm publish --tag beta --access=public && npm run deploy",
+    "beta": "npm run commit && git push && npm publish --tag beta --access=public",
     "size": "pkgfiles",
     "build": "npm run compile && npm run compile:sass && npm run alias-resolve",
     "start": "start-storybook -p 6006",
