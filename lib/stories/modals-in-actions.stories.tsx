@@ -7,8 +7,8 @@ import {
   SelectOptionType,
 } from '@wildberries/ui-kit';
 import { useDispatch, Provider } from 'react-redux';
-import { Notifications } from '@/components/container';
-import { setModalAction } from '@/redux-module/actions';
+import { Notifications } from '@/_components/notifications';
+import { setModalAction } from '@/redux-module';
 
 export default {
   title: 'Notifications',

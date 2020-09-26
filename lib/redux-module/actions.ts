@@ -1,5 +1,5 @@
 import { uniqueId } from 'lodash-es';
-import { NotificationType, Action } from '@/types/types';
+import { NotificationType, Action } from '@/types';
 
 export const SET_MODAL = '@notifications/SET_MODAL';
 export const setModalAction: Action<

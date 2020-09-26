@@ -10,7 +10,7 @@ import React, {
 import classnames from 'classnames/bind';
 import { Button, Text, NavigationCloseMediumIcon } from '@wildberries/ui-kit';
 import { notificationStatus } from '@/constants';
-import { IMakeExternalActionParams } from '../_types';
+import { IMakeExternalActionParams } from '@/types';
 import { NotificationsIcon } from '../notification-icon';
 import styles from './index.scss';
 
@@ -18,7 +18,7 @@ const cn = classnames.bind(styles);
 
 const BLOCK_NAME = 'Notification-modal';
 
-type PropType = {
+type PropsType = {
   closeModal: (id: string) => void;
   id: string;
   text?: string;
@@ -49,7 +49,7 @@ export const NotificationsModal = memo(
     externalAction,
     additionalActionType,
     additionalPayload,
-  }: PropType) => {
+  }: PropsType) => {
     const notificationModalRef = useRef(null);
 
     const [state, setState] = useState<StateType>({

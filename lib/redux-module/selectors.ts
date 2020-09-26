@@ -1,8 +1,5 @@
 import { createSelector } from 'reselect';
-import {
-  INotificationsStoragePart,
-  INotificationsStorage,
-} from '@/types/types';
+import { INotificationsStoragePart, INotificationsStorage } from '@/types';
 import { NOTIFICATIONS_REDUCER_NAME } from './constants';
 import { initialState } from './reducer';
 

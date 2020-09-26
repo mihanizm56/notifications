@@ -17,7 +17,7 @@
     "size": "pkgfiles",
     "build": "npm run compile && npm run alias-resolve && bash config/build/helper.sh",
     "start": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build:storybook": "build-storybook",
     "deploy": "node config/deploy/executor.js"
   },
   "author": "mihanizm56",

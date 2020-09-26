@@ -1,4 +1,4 @@
-import { INotificationsStorage } from '@/types/types';
+import { INotificationsStorage } from '@/types';
 import { SET_MODAL, REMOVE_MODAL } from './actions';
 
 export const initialState: INotificationsStorage = {
