@@ -13,7 +13,7 @@
     "strict": true,
     "declaration": true,
     "esModuleInterop": true,
-    "noImplicitAny":true,
+    "noImplicitAny": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
     "baseUrl": "./",
@@ -26,6 +26,7 @@
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "../lib/**/*.stories.mdx"
   ]
 }

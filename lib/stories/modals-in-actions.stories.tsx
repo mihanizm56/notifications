@@ -33,8 +33,14 @@ const SetModalComponent = ({
     );
 
   return (
-    <div>
-      <Button text="Set notification" type="button" onClick={setModal} />
+    <div style={{ width: '100%' }}>
+      <Button
+        text="Set notification"
+        type="button"
+        onClick={setModal}
+        size="big"
+        variant="main"
+      />
     </div>
   );
 };
