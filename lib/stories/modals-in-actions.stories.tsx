@@ -1,100 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createAppStore } from '@wildberries/redux-core-modules';
-import {
-  Button,
-  SimpleInput,
-  Select,
-  SelectOptionType,
-} from '@wildberries/ui-kit';
+import { Button } from '@wildberries/ui-kit';
+import { text, select, number } from '@storybook/addon-knobs';
 import { useDispatch, Provider } from 'react-redux';
 import { Notifications } from '@/_components/notifications';
 import { setModalAction } from '@/redux-module';
+import { BottomAligned } from './decorators/bottom-aligned';
 
 export default {
   title: 'Notifications',
+  decorators: [(story: any) => <BottomAligned>{story()}</BottomAligned>],
 };
 
 const store = createAppStore({});
 
-const statusOptions: Array<SelectOptionType> = [
-  {
-    id: '1',
-    value: 'success',
-    title: 'Успех',
-  },
-  {
-    id: '2',
-    value: 'error',
-    title: 'Ошибка',
-  },
-  {
-    id: '3',
-    value: 'warning',
-    title: 'Предупреждение',
-  },
-];
-
-const SetModalComponent = () => {
+const SetModalComponent = ({
+  modalTitle,
+  modalText,
+  modalStatus,
+  timeout: customHoldTimeout,
+}: any) => {
   const dispatch = useDispatch();
-  const [titleValue, setTitleValue] = useState('');
-  const [textValue, setTextValue] = useState('');
-  const [timeoutValue, setTimeoutValue] = useState('');
-  const [statusValue, setStatusValue] = useState(statusOptions[0]);
 
   const setModal = () =>
     dispatch(
       setModalAction({
-        title: titleValue,
-        text: textValue,
-        // eslint-disable-next-line
-        // @ts-ignore
-        status: statusValue.value,
-        customHoldTimeout: Number(timeoutValue),
+        title: modalTitle,
+        text: modalText,
+        status: modalStatus,
+        customHoldTimeout,
       }),
     );
 
   return (
-    <div style={{ paddingBottom: '30px' }}>
-      <div style={{ marginBottom: '30px' }}>
-        <SimpleInput
-          name="title"
-          id="title"
-          placeholder="Введите title"
-          value={titleValue}
-          onChange={({ value }) => setTitleValue(value)}
-        />
-      </div>
-      <div style={{ marginBottom: '30px' }}>
-        <SimpleInput
-          name="text"
-          id="text"
-          placeholder="Введите text"
-          value={textValue}
-          onChange={({ value }) => setTextValue(value)}
-        />
-      </div>
-      <div style={{ marginBottom: '30px' }}>
-        <SimpleInput
-          name="timeout"
-          id="timeout"
-          placeholder="Введите timeout показа модалки (если пуст то 10 секунд)"
-          value={timeoutValue}
-          onChange={({ value }) => setTimeoutValue(value)}
-        />
-      </div>
-      <div style={{ marginBottom: '30px' }}>
-        <Select
-          placeholder="Введите status"
-          value={statusValue}
-          options={statusOptions}
-          name="status"
-          id="status"
-          onChange={({ value }) => setStatusValue(value)}
-        />
-      </div>
-      <div>
-        <Button text="set notification" type="button" onClick={setModal} />
-      </div>
+    <div>
+      <Button text="Set notification" type="button" onClick={setModal} />
     </div>
   );
 };
@@ -102,6 +42,15 @@ const SetModalComponent = () => {
 export const ModalsInAction = () => (
   <Provider store={store}>
     <Notifications />
-    <SetModalComponent />
+    <SetModalComponent
+      modalTitle={text('Modal title', 'default title')}
+      modalText={text('Modal text', 'default text')}
+      timeout={number('Modal hold timeout value', 10000)}
+      modalStatus={select(
+        'Modal status',
+        ['success', 'error', 'warning'],
+        'success',
+      )}
+    />
   </Provider>
 );
