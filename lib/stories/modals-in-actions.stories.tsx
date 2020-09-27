@@ -93,7 +93,7 @@ const SetModalComponent = () => {
         />
       </div>
       <div>
-        <Button text="set positive modal" type="button" onClick={setModal} />
+        <Button text="set notification" type="button" onClick={setModal} />
       </div>
     </div>
   );
