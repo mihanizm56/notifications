@@ -14,7 +14,7 @@ deploy:
     provider: pages
     local_dir: storybook-static
     skip-cleanup: true
-    github-token: $GITHUB_TOKEN
+    github-token: $GITHUB_TOKEN_NOTIFICATIONS
     on:
       tags: true
       branches:
