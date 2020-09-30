@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react';
 import classnames from 'classnames/bind';
-import { Button, Text, NavigationCloseMediumIcon } from '@wildberries/ui-kit';
+import { Button, Text, BasicClearIcon } from '@wildberries/ui-kit';
 import { notificationStatus } from '@/constants';
 import { IMakeExternalActionParams } from '@/types';
 import { NotificationsIcon } from '../notification-icon';
@@ -198,7 +198,7 @@ export const NotificationsModal = memo(
         </div>
         <div className={cn(`${BLOCK_NAME}__close-button`)}>
           <Button onClick={handleCloseClick} size="small" type="button">
-            {NavigationCloseMediumIcon}
+            {BasicClearIcon}
           </Button>
         </div>
       </div>

@@ -31,7 +31,7 @@
     "url": "https://github.com/mihanizm56/notifications/issues"
   },
   "dependencies": {
-    "@wildberries/ui-kit": "0.0.1-beta.58"
+    "@wildberries/ui-kit": "0.0.1-beta.60"
   },
   "devDependencies": {
     "@commitlint/cli": "9.1.2",

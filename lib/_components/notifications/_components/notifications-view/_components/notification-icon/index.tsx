@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import {
   BasicCircleXIcon,
   BasicCircleCheckedIcon,
-  NavigationWarningOrangeBigIcon,
+  NotificationsAlertCircleIcon,
 } from '@wildberries/ui-kit';
 import { notificationStatus } from '@/constants';
 
@@ -13,15 +13,15 @@ type PropType = {
 export const NotificationsIcon = memo(({ status }: PropType) => {
   switch (status) {
     case notificationStatus.success:
-      return <BasicCircleCheckedIcon fill="success" />;
+      return <BasicCircleCheckedIcon colorType="successTextColorColor" />;
 
     case notificationStatus.error:
-      return <BasicCircleXIcon fill="error" />;
+      return <BasicCircleXIcon colorType="redColor" />;
 
     case notificationStatus.warning:
-      return <NavigationWarningOrangeBigIcon />;
+      return <NotificationsAlertCircleIcon colorType="orangeColor" />;
 
     default:
-      return <NavigationWarningOrangeBigIcon />;
+      return <NotificationsAlertCircleIcon />;
   }
 });
