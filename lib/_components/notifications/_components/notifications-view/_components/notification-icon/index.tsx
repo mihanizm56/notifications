@@ -3,7 +3,7 @@ import {
   BasicCircleXIcon,
   BasicCircleCheckedIcon,
   NavigationWarningOrangeBigIcon,
-} from '@wildberries/ui-kit';
+} from '@/_components/icons';
 import { notificationStatus } from '@/constants';
 
 type PropType = {
