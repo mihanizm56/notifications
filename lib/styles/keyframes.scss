@@ -1,5 +1,5 @@
-@import "~@wildberries/ui-kit/lib/styles/constants.module.scss";
-@import "~@wildberries/ui-kit/lib/styles/media.module.scss";
+@import "./constants.scss";
+@import "./media.scss";
 
 // animation constants
 $animation-bubbling-fadeIn-duration: .5s;

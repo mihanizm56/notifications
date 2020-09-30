@@ -8,7 +8,9 @@ import React, {
   useMemo,
 } from 'react';
 import classnames from 'classnames/bind';
-import { Button, Text, NavigationCloseMediumIcon } from '@wildberries/ui-kit';
+import { NavigationCloseMediumIcon } from '@/_components/icons';
+import { Button } from '@/_components/button';
+import { Text } from '@/_components/text';
 import { notificationStatus } from '@/constants';
 import { IMakeExternalActionParams } from '@/types';
 import { NotificationsIcon } from '../notification-icon';

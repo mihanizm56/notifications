@@ -1,8 +1,8 @@
 import React from 'react';
 import { createAppStore } from '@wildberries/redux-core-modules';
-import { Button } from '@wildberries/ui-kit';
 import { text, select, number } from '@storybook/addon-knobs';
 import { useDispatch, Provider } from 'react-redux';
+import { Button } from '@wildberries/ui-kit';
 import { Notifications } from '@/_components/notifications';
 import { setModalAction } from '@/redux-module';
 import { BottomAligned } from './decorators/bottom-aligned';

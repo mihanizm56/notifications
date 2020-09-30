@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Portal } from '@wildberries/ui-kit';
 import classnames from 'classnames/bind';
+import { Portal } from '@/_components/portal';
 import { IMakeExternalActionParams, NotificationType } from '@/types';
 import {
   TIME_TO_ENTER_MODAL,
