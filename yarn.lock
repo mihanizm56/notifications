@@ -1651,17 +1651,18 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.18.tgz#c7563bf72cb4520b8b7100b64006a64be717e936"
   integrity sha512-axMe+NoLF55OlXPbhRn4GNCHcL1f5W3V3c0dWzg05S9JXm3Ecpxzxaht3g3vTP0dcqBL/yh/xCvzK0ZpO54Eug==
 
-"@mihanizm56/fetch-api@3.3.18":
-  version "3.3.18"
-  resolved "https://registry.yarnpkg.com/@mihanizm56/fetch-api/-/fetch-api-3.3.18.tgz#1d59057a609e56b1dd56409f67db3926a5b6bff7"
-  integrity sha512-kDwyOjKDtPdMMHqGOhAB/8QFeVYa9RPv3vRXasFjKUGOytceBNxbrBJUJwO0yo+aLfOq8u02RPjL04RdZwku1Q==
+"@mihanizm56/fetch-api@3.4.5":
+  version "3.4.5"
+  resolved "https://registry.yarnpkg.com/@mihanizm56/fetch-api/-/fetch-api-3.4.5.tgz#560e169c4624fa959e5aef2e3cf18c81bdb11bf1"
+  integrity sha512-67WuJHTOcU9w/wcckSRTfutuU3fxPy6ksv7GO7oDkxsncQ0JkLqBfWEl+6wT/2kRZwEwTBq67WVojLhJIbKG1Q==
   dependencies:
     "@hapi/joi" "17.1.1"
     "@types/joi" "14.3.4"
     "@types/node-fetch" "2.5.5"
     colors "1.4.0"
+    json-mask "1.0.4"
     node-fetch "2.6.1"
-    query-string "6.13.1"
+    query-string "6.13.7"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -8840,6 +8841,11 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
 
+json-mask@1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/json-mask/-/json-mask-1.0.4.tgz#07366b7f1fa81cfa1683435bf640cc9bd9bc892d"
+  integrity sha512-ZnNhI8x2DeU57jGSa82w5JS3wJp0N6kqrKfg2OWcTJC1tInggqkjn0W63fCcafus3+f86bvsbla0PvRowPJbZg==
+
 json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
@@ -11354,10 +11360,10 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-query-string@6.13.1:
-  version "6.13.1"
-  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.13.1.tgz#d913ccfce3b4b3a713989fe6d39466d92e71ccad"
-  integrity sha512-RfoButmcK+yCta1+FuU8REvisx1oEzhMKwhLUNcepQTPGcNMp1sIqjnfCtfnvGSQZQEhaBHvccujtWoUV3TTbA==
+query-string@6.13.7:
+  version "6.13.7"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.13.7.tgz#af53802ff6ed56f3345f92d40a056f93681026ee"
+  integrity sha512-CsGs8ZYb39zu0WLkeOhe0NMePqgYdAuCqxOYKDR5LVCytDZYMGx3Bb+xypvQvPHVPijRXB0HZNFllCzHRe4gEA==
   dependencies:
     decode-uri-component "^0.2.0"
     split-on-first "^1.0.0"
