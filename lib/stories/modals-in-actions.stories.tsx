@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createAppStore } from '@wildberries/redux-core-modules';
 import { text, select, number } from '@storybook/addon-knobs';
 import { useDispatch, Provider } from 'react-redux';
@@ -19,7 +19,17 @@ const SetModalComponent = ({
   modalText,
   modalStatus,
   timeout: customHoldTimeout,
+  notificationsTop,
 }: any) => {
+  useEffect(() => {
+    if (notificationsTop) {
+      document.documentElement.style.setProperty(
+        '--notifications-top',
+        notificationsTop,
+      );
+    }
+  }, [notificationsTop]);
+
   const dispatch = useDispatch();
 
   const setModal = () =>
@@ -51,6 +61,7 @@ export const ModalsInAction = () => (
     <SetModalComponent
       modalTitle={text('Modal title', 'default title')}
       modalText={text('Modal text', 'default text')}
+      notificationsTop={text('Notifications Top', '10px')}
       timeout={number('Modal hold timeout value', 10000)}
       modalStatus={select(
         'Modal status',

@@ -25,43 +25,33 @@ export const NotificationsView = memo(
   ({ modalStack, closeModal, makeExternalAction }: PropsType) => (
     <Portal prefix="notifications" zIndex={99}>
       <TransitionGroup className={cn(BLOCK_NAME)}>
-        {modalStack.map(
-          ({
-            status,
-            text,
-            title,
-            id,
-            additionalActionType,
-            additionalPayload,
-            customHoldTimeout,
-          }) => (
-            <CSSTransition
-              key={id}
-              timeout={{
-                enter: TIME_TO_ENTER_MODAL,
-                exit: TIME_TO_EXIT_MODAL,
-              }}
-              classNames={{
-                enter: cn(`${BLOCK_NAME}__modal-animation-box--enter`),
-              }}
-            >
-              <div className={cn(`${BLOCK_NAME}__modal-animation-box`)}>
-                <NotificationsModal
-                  status={status}
-                  text={text}
-                  key={id}
-                  title={title}
-                  id={id}
-                  closeModal={closeModal}
-                  timeToHold={customHoldTimeout || TIME_TO_HOLD_MODAL}
-                  externalAction={makeExternalAction}
-                  additionalActionType={additionalActionType}
-                  additionalPayload={additionalPayload}
-                />
-              </div>
-            </CSSTransition>
-          ),
-        )}
+        {modalStack.map(modalParams => (
+          <CSSTransition
+            key={modalParams.id}
+            timeout={{
+              enter: TIME_TO_ENTER_MODAL,
+              exit: TIME_TO_EXIT_MODAL,
+            }}
+            classNames={{
+              enter: cn(`${BLOCK_NAME}__modal-animation-box--enter`),
+            }}
+          >
+            <div className={cn(`${BLOCK_NAME}__modal-animation-box`)}>
+              <NotificationsModal
+                status={modalParams.status}
+                text={modalParams.text}
+                key={modalParams.id}
+                title={modalParams.title}
+                id={modalParams.id}
+                closeModal={closeModal}
+                timeToHold={modalParams.customHoldTimeout || TIME_TO_HOLD_MODAL}
+                externalAction={makeExternalAction}
+                additionalActionType={modalParams.additionalActionType}
+                additionalPayload={modalParams.additionalPayload}
+              />
+            </div>
+          </CSSTransition>
+        ))}
       </TransitionGroup>
     </Portal>
   ),
