@@ -1,4 +1,4 @@
-# @wildberries/notifications
+# notifications
 
 [![Build Status](https://travis-ci.com/mihanizm56/notifications.svg?branch=master)](https://travis-ci.com/mihanizm56/notifications)
 
